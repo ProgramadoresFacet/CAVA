@@ -7,7 +7,6 @@
     <link href="<?=base_url('assets/template/')?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
     <link href="<?=base_url('assets/template/')?>css/styles.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,9 +64,9 @@
 			  	<div class="sidebar content-box" style="display: block;">
 	                <ul class="nav">
 	                    <!-- Main menu -->
-	                    <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
-	                    <li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i>participantes</a></li>
-	                    <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i>Trabajos</a></li>
+	                    <li class="current"><a href="<?=base_url('inicio')?>"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
+	                    <li><a href="<?=base_url('participantes')?>"><i class="glyphicon glyphicon-calendar"></i>participantes</a></li>
+	                    <li><a href="<?=base_url('trabajos')?>"><i class="glyphicon glyphicon-stats"></i>Trabajos</a></li>
 	                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i>Informes</a></li>
 	                    <li class="submenu">
 	                         <a href="#">
