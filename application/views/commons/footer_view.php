@@ -4,6 +4,14 @@
   </div>
       <!-- { CONTENIDO PRINCIPAL } -->
 
+<<<<<<< HEAD
+=======
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+>>>>>>> origin/master
 	<!-- { FOOTER } -->
     <footer>
          <div class="container">
