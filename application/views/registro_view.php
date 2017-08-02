@@ -48,7 +48,7 @@
 								    <div class="tab-pane" id="tab2">
 								    </div>
 									<ul class="pager wizard">
-									  	<li class="next"><a href="" style="background:#117cf3;color:white">Registrar</a></li>
+									  	<li class="next"><a href="<?=base_url('bono')?>" style="background:#117cf3;color:white">Registrar</a></li>
 									</ul>
 								</div>	
 							</div>
