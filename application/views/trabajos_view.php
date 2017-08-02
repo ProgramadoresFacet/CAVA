@@ -38,14 +38,48 @@
 						        <h4 class="modal-title">Nombre del Trabajo</h4>
 						      </div>
 						      <div class="modal-body">
+
+						      	<div class="alert alert-success" role="alert">
+								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								  Seleccionar el autor que va a recibir el mail con el certificado
+								</div>
+						      	
 						        <form>
-								  <input type="radio" name="gender" value="Autor1"> Autor1<br>
-								  <input type="radio" name="gender" value="Autor2"> Autor2<br>
-								  <input type="radio" name="gender" value="Autor3"> Autor3  
+									<table class="table">
+						              <thead>
+						                <tr>
+						                  <th>Nombre</th>
+						                  <th>Apellido</th>
+						                  <th>Mail</th>
+						                  <th>&nbsp;</th>
+						                </tr>
+						              </thead>
+						              <tbody>
+						                <tr>
+						                  <td>Mark</td>
+						                  <td>Otto</td>
+						                  <td>maildecontacto@mail.com</td>
+						                  <td><input type="radio" checked name="gender" value="Autor1"></td>
+						                </tr>
+						                <tr>
+						                  <td>Jacob</td>
+						                  <td>Thornton</td>
+						                  <td>maildecontacto@mail.com</td>
+						                  <td><input type="radio" name="gender" value="Autor2"></td>
+						                </tr>
+						                <tr>
+						                  <td>Larry</td>
+						                  <td>the Bird</td>
+						                  <td>maildecontacto@mail.com</td>
+						                  <td><input type="radio" name="gender" value="Autor3"> </td>
+						                </tr>
+						              </tbody>
+						            </table>
 								</form>
 						      </div>
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Aceptar</button>
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 						      </div>
 						    </div>
 
