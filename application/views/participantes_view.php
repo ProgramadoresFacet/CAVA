@@ -23,6 +23,12 @@
 										<td>Win 95+</td>
 										<td class="center"> 4</td>
 										<td class="center">X</td>
+										<td class="center">
+											<span class="glyphicon glyphicon-edit"></span>
+                  						</td>
+										<td class="center">
+											<span class="glyphicon glyphicon-trash"></span>
+										</td>
 									</tr>
 									<tr class="even gradeC">
 										<td>Trident</td>
@@ -31,6 +37,12 @@
 										<td>Win 95+</td>
 										<td class="center">5</td>
 										<td class="center">C</td>
+										<td class="center">
+											<span class="glyphicon glyphicon-edit"></span>
+                  						</td>
+										<td class="center">
+											<span class="glyphicon glyphicon-trash"></span>
+										</td>
 									</tr>									
 								</tbody>
 							</table>							
