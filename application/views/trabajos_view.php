@@ -7,20 +7,18 @@
 								<thead>
 									<tr>
 										<th>Nombre del Trabajo</th>
-										<th>Estado</th>
 										<th>Pagado</th>										
 									</tr>
 								</thead>
+								<style>tbody tr{cursor: pointer;}</style>
 								<tbody>									
 									<tr class="odd gradeX" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> <!-- Modal -->
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td>Win 95+</td>										
+										<td>Evaluando la Accesibilidad de Recursos Educativos Digitales: Validación de Barreras Asociadas a Usuarios con Discapacidad Visual Total</td>
+										<td>No</td>
 									</tr>									
-									<tr class="even gradeC">
-										<td>Trident</td>
-										<td>Internet Explorer 5.0</td>
-										<td>Win 95+</td>										
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
 									</tr>									
 								</tbody>
 							</table>							

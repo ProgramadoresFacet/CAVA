@@ -8,7 +8,7 @@
 							  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 							  <span class="sr-only">Aviso:</span>
 							  Este partcipante es autor, cambiar el estado de una obra a pagado 
-							  <a href="#">Cambiar estado</a>
+							  <a href="<?=base_url('trabajos/')?>" target="_blank">Cambiar estado</a>
 							</div>
 
 			  				<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
@@ -30,7 +30,7 @@
 										<td>maildecontacto@gmail.com</td>
 										<td class="center">Autor</td>
 										<td class="center">Si</td>
-										<td class="center"><span class="glyphicon glyphicon-edit"></span></td>
+										<td class="center"><a href="<?=base_url('participantes/update/44')?>"><span class="glyphicon glyphicon-edit"></span></td>
 										<td class="center"><span class="glyphicon glyphicon-trash"></span></td>
 									</tr>									
 								</tbody>

@@ -64,7 +64,7 @@
 			  	<div class="sidebar content-box" style="display: block;">
 	                <ul class="nav">
 	                    <!-- Main menu -->
-	                    <li class="current"><a href="<?=base_url('inicio')?>"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
+	                    <li class="current"><a href="<?=base_url('registrar')?>"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
 	                    <li><a href="<?=base_url('participantes')?>"><i class="glyphicon glyphicon-calendar"></i>participantes</a></li>
 	                    <li><a href="<?=base_url('trabajos')?>"><i class="glyphicon glyphicon-stats"></i>Trabajos</a></li>
 	                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i>Informes</a></li>

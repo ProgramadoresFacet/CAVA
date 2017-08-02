@@ -57,16 +57,4 @@ class participantes_model extends CI_model {
 		return ($this->db->affected_rows() == 1) ? true : false;
 	}
 
-	function escriben_trabajos($id = null){
-		$this->db->select('*');
-		$this->db->from('participantes p');
-		$this->db->join('escriben e', 'p.id_participante = e.id_participante');
-		$this->db->join('trabajos t', 'e.id_trabajo = t.id_trabajo');
-		if(!is_null($id))
-			$this->db->where('p.id_participante', $id);
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-
 }

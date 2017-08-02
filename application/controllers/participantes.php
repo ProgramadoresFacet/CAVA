@@ -13,19 +13,15 @@ class Participantes extends CI_Controller {
 	{
 		
 		$this->load->view('commons/header_menu_view');
-		echo '<pre>';
-		$data = [
-			'nombre' => 'gustavo',
-			'apellido' => 'benzt',
-			'mail' => 'mail@mail.com',
-			'pagado' => 1,
-			'id_tipo' => 1
-		];
-
-		$result = $this->participantes_model->get_like();	
-		print_r($result);
-		echo '</pre>';
 		$this->load->view('participantes_view');
+		$this->load->view('commons/footer_view');
+	}
+
+	public function update($id = null){
+		if(is_null($id))
+			redirect('participantes');
+		$this->load->view('commons/header_menu_view');
+		$this->load->view('registro_update_view');
 		$this->load->view('commons/footer_view');
 	}
 }
