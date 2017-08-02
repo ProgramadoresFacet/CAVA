@@ -10,40 +10,23 @@
 										<th>Apellido</th>
 										<th>Mail</th>
 										<th>Tipo</th>
-										<th>Estado</th>
+										<th>Pagado</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php for($i=1; $i<100;$i++):?>
 									<tr class="odd gradeX">
-										<td>Trident</td>
-										<td>Internet
-											 Explorer 4.0</td>
-										<td>Win 95+</td>
-										<td class="center"> 4</td>
-										<td class="center">X</td>
-										<td class="center">
-											<span class="glyphicon glyphicon-edit"></span>
-                  						</td>
-										<td class="center">
-											<span class="glyphicon glyphicon-trash"></span>
-										</td>
+										<td>Sam<?=$i?></td>
+										<td>Benzeti</td>
+										<td>mail@contacto.com.ar</td>
+										<td class="center">Autor</td>
+										<td class="center">Si</td>
+										<td class="center"><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
-									<tr class="even gradeC">
-										<td>Trident</td>
-										<td>Internet
-											 Explorer 5.0</td>
-										<td>Win 95+</td>
-										<td class="center">5</td>
-										<td class="center">C</td>
-										<td class="center">
-											<span class="glyphicon glyphicon-edit"></span>
-                  						</td>
-										<td class="center">
-											<span class="glyphicon glyphicon-trash"></span>
-										</td>
-									</tr>									
+									<?php endfor; ?>									
 								</tbody>
 							</table>							
 						</div>
