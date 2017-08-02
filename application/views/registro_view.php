@@ -6,6 +6,13 @@
 				  			<div id="rootwizard">
 								
 								<div class="tab-content">
+
+									<div class="alert alert-danger" role="alert">
+									  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+									  <span class="sr-only">Aviso:</span>
+									  El mail debe ser válido
+									</div>
+
 								    <div class="tab-pane active" id="tab1">
 								      <form class="form-horizontal" role="form">
 										  <div class="form-group">
@@ -41,7 +48,7 @@
 								    <div class="tab-pane" id="tab2">
 								    </div>
 									<ul class="pager wizard">
-									  	<li class="next"><a href="">Registrar</a></li>
+									  	<li class="next"><a href="" style="background:#117cf3;color:white">Registrar</a></li>
 									</ul>
 								</div>	
 							</div>
