@@ -7,20 +7,18 @@
 								<thead>
 									<tr>
 										<th>Nombre del Trabajo</th>
-										<th>Estado</th>
 										<th>Pagado</th>										
 									</tr>
 								</thead>
+								<style>tbody tr{cursor: pointer;}</style>
 								<tbody>									
 									<tr class="odd gradeX" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> <!-- Modal -->
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td>Win 95+</td>										
+										<td>Evaluando la Accesibilidad de Recursos Educativos Digitales: Validación de Barreras Asociadas a Usuarios con Discapacidad Visual Total</td>
+										<td>No</td>
 									</tr>									
-									<tr class="even gradeC">
-										<td>Trident</td>
-										<td>Internet Explorer 5.0</td>
-										<td>Win 95+</td>										
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
 									</tr>									
 								</tbody>
 							</table>							
@@ -38,14 +36,48 @@
 						        <h4 class="modal-title">Nombre del Trabajo</h4>
 						      </div>
 						      <div class="modal-body">
+
+						      	<div class="alert alert-success" role="alert">
+								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								  Seleccionar el autor que va a recibir el mail con el certificado
+								</div>
+						      	
 						        <form>
-								  <input type="radio" name="gender" value="Autor1"> Autor1<br>
-								  <input type="radio" name="gender" value="Autor2"> Autor2<br>
-								  <input type="radio" name="gender" value="Autor3"> Autor3  
+									<table class="table">
+						              <thead>
+						                <tr>
+						                  <th>Nombre</th>
+						                  <th>Apellido</th>
+						                  <th>Mail</th>
+						                  <th>&nbsp;</th>
+						                </tr>
+						              </thead>
+						              <tbody>
+						                <tr>
+						                  <td>Mark</td>
+						                  <td>Otto</td>
+						                  <td>maildecontacto@mail.com</td>
+						                  <td><input type="radio" checked name="gender" value="Autor1"></td>
+						                </tr>
+						                <tr>
+						                  <td>Jacob</td>
+						                  <td>Thornton</td>
+						                  <td>maildecontacto@mail.com</td>
+						                  <td><input type="radio" name="gender" value="Autor2"></td>
+						                </tr>
+						                <tr>
+						                  <td>Larry</td>
+						                  <td>the Bird</td>
+						                  <td>maildecontacto@mail.com</td>
+						                  <td><input type="radio" name="gender" value="Autor3"> </td>
+						                </tr>
+						              </tbody>
+						            </table>
 								</form>
 						      </div>
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Aceptar</button>
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 						      </div>
 						    </div>
 

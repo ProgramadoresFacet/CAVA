@@ -75,10 +75,15 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.1.111',
+<<<<<<< HEAD
+	'hostname' => 'localhost',
 	'username' => '',
+=======
+	'hostname' => 'localhost',
+	'username' => 'root',
+>>>>>>> origin/master
 	'password' => '',
-	'database' => '',
+	'database' => 'cava',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
