@@ -22,8 +22,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <a href="<?=base_url('registrar')?>"><img class="headerimg" src="http://cava-conference.info/cava/cava2017/wp-content/uploads/2016/12/logocava2017.png" width="25%" height="25%"></a>
-	                 <!--VER POR QUE NO ME DEJA PONER UNA IMAGEN LOCAL-->
+	                 <a href="<?=base_url('registrar')?>"><img class="headerimg" src="<?=base_url('docs/logocava.png')?>"s width="27%" height="27%"></a>	                 
 	              </div>
 	           </div>
 	           <div class="col-md-5">
