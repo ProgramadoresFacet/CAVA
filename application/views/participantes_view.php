@@ -19,8 +19,8 @@
 									<?php for($i=1; $i<100;$i++):?>
 									<?php $url = base_url('participantes/update/').$i ?>
 									<tr class="odd gradeX">
-										<td>Sam<?=$i?></td>
-										<td>Benzeti</td>
+										<td>María</td>
+										<td>Martinez<?=$i?></td>
 										<td>mail@contacto.com.ar</td>
 										<td class="center">Autor</td>
 										<td class="center"><a href="<?=base_url('bono')?>">Si</a></td>
