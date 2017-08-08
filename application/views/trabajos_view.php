@@ -19,6 +19,26 @@
 									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
 										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
 										<td>Si</td>									
+									</tr>
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
+									</tr>
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
+									</tr>
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
+									</tr>
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
+									</tr>
+									<tr class="even gradeC" data-toggle="modal" data-target="#myModal">
+										<td>Comparación de Herramientas de Autor a partir de Evaluaciones de Accesibilidad</td>
+										<td>Si</td>									
 									</tr>									
 								</tbody>
 							</table>							
@@ -76,7 +96,7 @@
 								</form>
 						      </div>
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-primary">Aceptar</button>
+						        <button type="button" class="btn btn-primary">Guardar cambios</button>
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 						      </div>
 						    </div>
