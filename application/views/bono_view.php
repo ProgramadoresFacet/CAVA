@@ -18,6 +18,7 @@
 										<th>Apellido</th>
 										<th>Mail</th>
 										<th>Tipo</th>
+										<th>Pais</th>
 										<th>Pagado</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
@@ -29,6 +30,7 @@
 										<td>Perez</td>
 										<td>maildecontacto@gmail.com</td>
 										<td class="center">Autor</td>
+										<td>Bolivia</td>
 										<td class="center">Si</td>
 										<td class="center"><a href="<?=base_url('participantes/update/44')?>"><span class="glyphicon glyphicon-edit"></span></td>
 										<td class="center"><span class="glyphicon glyphicon-trash"></span></td>
