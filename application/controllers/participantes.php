@@ -5,7 +5,7 @@ class Participantes extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('participantes_model');
+		$this->load->model('escriben_model');
 	}
 
 

@@ -34,11 +34,21 @@
 										    </div>
 										  </div>
 										  <div class="form-group">
-										    <label for="inputPassword3" class="col-sm-2 control-label">Tipo</label>
+										    <label for="inputPassword3" class="col-sm-2 control-label">Rol</label>
 										    <div class="col-sm-10">
 										      <select class="form-control" id="inputPassword3" placeholder="">
 										      	<option value="">Autor</option>
-										      	<option value="">Docente</option>
+										      	<option value="">Ponente</option>
+										      	<option value="">Alumno</option>
+										      </select>
+										    </div>
+										  </div>
+										  <div class="form-group">
+										    <label for="inputPassword3" class="col-sm-2 control-label">Pais</label>
+										    <div class="col-sm-10">
+										      <select class="form-control" id="inputPassword3" placeholder="">
+										      	<option value="">Autor</option>
+										      	<option value="">Ponente</option>
 										      	<option value="">Alumno</option>
 										      </select>
 										    </div>

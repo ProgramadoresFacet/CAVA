@@ -18,6 +18,7 @@
 										<th>Apellido</th>
 										<th>Mail</th>
 										<th>Tipo</th>
+										<th>Pais</th>
 										<th>Pagado</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
@@ -29,6 +30,7 @@
 										<td>Perez</td>
 										<td>maildecontacto@gmail.com</td>
 										<td class="center">Autor</td>
+										<td>Colombia</td>
 										<td class="center">Si</td>
 										<td class="center"><a href="<?=base_url('participantes/update/44')?>"><span class="glyphicon glyphicon-edit"></span></td>
 										<td class="center"><span class="glyphicon glyphicon-trash"></span></td>
@@ -37,6 +39,20 @@
 							</table>
 
 							<div class="row">
+								
+								<div class="form-group">
+									<br>
+								    <br>
+								    <label for="inputPassword3" class="col-sm-2 control-label">Tipo pago</label>
+								    <div class="col-sm-10">
+								      <select class="form-control" id="inputPassword3" placeholder="">
+								      	<option value="">Autor  U$ 150 - $ 2225</option>
+								      	<option value="">Docente/investigador U$ 100 - $ 1725</option>
+								      	<option value="">Docentes con 5 alumnos o más U$ 80 - $1685</option>
+								      </select>
+								    </div>
+								</div>
+
 								<div class="col-md-6">
 									<div class="well" style="margin-top:30px;">
 				                        <button type="button" class="btn btn-lg btn-block btn-warning">Generar Bono</button>

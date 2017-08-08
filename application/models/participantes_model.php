@@ -3,6 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class participantes_model extends CI_model {
 
+	/*Devuelve todos los participantes si se omite la condicion
+	  Devuelve los participantes si se agrega una condicion en un array ejemplo
+	get(['nombre' => 'maria']) */
+	
 	function get($condition = null){
 		if($condition != null)
 			$this->db->where($condition);
@@ -12,7 +16,7 @@ class participantes_model extends CI_model {
 		return $query->result();
 	}
 
-
+	//devuelve un participante segun un ID
 	function get_id($id = null){
 		if(is_null($data))
 			return false;
@@ -22,6 +26,7 @@ class participantes_model extends CI_model {
 		return $query->result();
 	}
 
+	//Devuelve los participantes segun una cadena
 	function get_like($string){
 		$this->db->like('nombre',$string);
 		$this->db->or_like('apellido',$string);
@@ -32,6 +37,16 @@ class participantes_model extends CI_model {
 		return $query->result();
 	}
 
+	/*
+	data es un array de la forma
+	data = [
+		'nombre'   => '...',
+		'apellido' => '...',
+		'mail'     => '...',
+		'pagado'   => '...',
+		'id_tipo'  => '...'
+	]
+	*/
 	function insert($data){
 		if(empty($data))
 			return false;
@@ -40,6 +55,17 @@ class participantes_model extends CI_model {
 		return ($this->db->affected_rows() == 1) ? true : false;
 	}
 
+	/*
+	id de la fila a actualizar
+	data es un array de la forma
+	data = [
+		'nombre'   => '...',
+		'apellido' => '...',
+		'mail'     => '...',
+		'pagado'   => '...',
+		'id_tipo'  => '...'
+	]
+	*/
 	function update($id,$data){
 		if(is_null($id) || empty($data))
 			return false;
@@ -49,6 +75,7 @@ class participantes_model extends CI_model {
 		return ($this->db->affected_rows() == 1) ? true : false;
 	}
 
+	//elimina segun un id
 	function delete($id = null){
 		if(is_null($id))
 			return false;
