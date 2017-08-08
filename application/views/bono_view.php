@@ -37,6 +37,20 @@
 							</table>
 
 							<div class="row">
+								
+								<div class="form-group">
+									<br>
+								    <br>
+								    <label for="inputPassword3" class="col-sm-2 control-label">Tipo pago</label>
+								    <div class="col-sm-10">
+								      <select class="form-control" id="inputPassword3" placeholder="">
+								      	<option value="">Autor  U$ 150 - $ 2225</option>
+								      	<option value="">Docente/investigador U$ 100 - $ 1725</option>
+								      	<option value="">Docentes con 5 alumnos o más U$ 80 - $1685</option>
+								      </select>
+								    </div>
+								</div>
+
 								<div class="col-md-6">
 									<div class="well" style="margin-top:30px;">
 				                        <button type="button" class="btn btn-lg btn-block btn-warning">Generar Bono</button>
