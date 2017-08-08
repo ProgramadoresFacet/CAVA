@@ -9,7 +9,7 @@
 										<th>Nombre</th>
 										<th>Apellido</th>
 										<th>Mail</th>
-										<th>Tipo</th>
+										<th>Rol</th>
 										<th>Pagado</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
@@ -30,5 +30,11 @@
 									<?php endfor; ?>									
 								</tbody>
 							</table>							
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<a href="" class="btn btn-lg btn-block btn-primary">Registrar</a>
+							</div>
 						</div>
 </div>
