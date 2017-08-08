@@ -30,7 +30,7 @@
 										<td>Perez</td>
 										<td>maildecontacto@gmail.com</td>
 										<td class="center">Autor</td>
-										<td>Bolivia</td>
+										<td>Colombia</td>
 										<td class="center">Si</td>
 										<td class="center"><a href="<?=base_url('participantes/update/44')?>"><span class="glyphicon glyphicon-edit"></span></td>
 										<td class="center"><span class="glyphicon glyphicon-trash"></span></td>
