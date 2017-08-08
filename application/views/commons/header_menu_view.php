@@ -22,7 +22,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">CAVA 2017</a></h1>
+	                 <a href="<?=base_url('registrar')?>"><img class="headerimg" src="<?=base_url('docs/logocava.png')?>"s width="27%" height="27%"></a>	                 
 	              </div>
 	           </div>
 	           <div class="col-md-5">
@@ -65,7 +65,7 @@
 	                <ul class="nav">
 	                    <!-- Main menu -->
 	                    <li class="current"><a href="<?=base_url('registrar')?>"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
-	                    <li><a href="<?=base_url('participantes')?>"><i class="glyphicon glyphicon-calendar"></i>participantes</a></li>
+	                    <li><a href="<?=base_url('participantes')?>"><i class="glyphicon glyphicon-calendar"></i>Participantes</a></li>
 	                    <li><a href="<?=base_url('trabajos')?>"><i class="glyphicon glyphicon-stats"></i>Trabajos</a></li>
 	                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i>Informes</a></li>
 	                    <li class="submenu">
