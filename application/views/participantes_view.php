@@ -10,7 +10,6 @@
 										<th>Apellido</th>
 										<th>Mail</th>
 										<th>Rol</th>
-										<th>Pagado</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
 									</tr>
@@ -19,11 +18,10 @@
 									<?php for($i=1; $i<100;$i++):?>
 									<?php $url = base_url('participantes/update/').$i ?>
 									<tr class="odd gradeX">
-										<td>Sam<?=$i?></td>
+										<td><a href="<?=base_url('bono')?>">Sam<?=$i?></a></td>
 										<td>Benzeti</td>
 										<td>mail@contacto.com.ar</td>
 										<td class="center">Autor</td>
-										<td class="center"><a href="<?=base_url('bono')?>">Si</a></td>
 										<td class="center"><a href="<?=$url?>"><span class="glyphicon glyphicon-edit"></span></a></td>
 										<td class="center"><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>

@@ -67,7 +67,7 @@
 	                    <li><a href="<?=base_url('participantes')?>"><i class="glyphicon glyphicon-calendar"></i>Participantes</a></li>
 	                    <li class="current"><a href="<?=base_url('registrar')?>"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
 	                    <li><a href="<?=base_url('trabajos')?>"><i class="glyphicon glyphicon-stats"></i>Trabajos</a></li>
-	                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i>Informes</a></li>
+	                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i>ticket</a></li>
 	                    <li class="submenu">
 	                         <a href="#">
 	                            <i class="glyphicon glyphicon-list"></i> Pages
