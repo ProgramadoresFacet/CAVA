@@ -23,7 +23,7 @@ $config['precio_cambio'] = 20.45;
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://192.168.1.11/cava/';
+$config['base_url'] = "http://" . $_SERVER['SERVER_NAME'] . "/cava/";
 
 /*
 |--------------------------------------------------------------------------
