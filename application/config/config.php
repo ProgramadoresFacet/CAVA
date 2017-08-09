@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['precio_cambio'] = 20.45;
+$config['precio_cambio'] = 10;
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

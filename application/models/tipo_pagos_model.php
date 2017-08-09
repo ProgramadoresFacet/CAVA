@@ -18,6 +18,20 @@ class tipo_pagos_model extends CI_model {
 		return $query->result();
 	}
 
+	function get_monto($id = null){
+		if($id == null)
+			return false;
+
+		$this->db->select('monto');
+		$this->db->from('tipo_pagos');
+		$this->db->where('id_tipo_pago',$id);
+		$query = $this->db->get()->result();
+		foreach ($query as $key ) {
+			return $key->monto;
+		}
+		
+	}
+
 	
 
 }

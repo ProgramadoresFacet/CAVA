@@ -49,24 +49,29 @@
 							    <div role="tabpanel" class="tab-pane active" id="home">
 							    	<div class="form-group col-md-12">
 											<label>Tipo de pago</label>
-											<select class="form-control">
-												<?php foreach ($tipopago as $tipo):?>
-													<?php if($pais != 'ARGENTINA'):?>
-														<?php if($tipo->id_tipo_pago <= 8):?>
-															<option value=""><?= $tipo->tipo . ' $' . $tipo->monto?></option>
-														<?php endif; ?>	
-													<?php else:?>
-														<?php if($tipo->id_tipo_pago > 8):?>
-															<option value=""><?= $tipo->tipo . ' $' . $tipo->monto?></option>
+											<form method="post" action="<?=base_url('Bono/registrar_asistencia')?>">
+												<input type="hidden" value="<?=$idpersona?>" name="idpersona">
+
+												<select class="form-control" name="tipopago">
+													<?php foreach ($tipopago as $tipo):?>
+														<?php if($pais != 'ARGENTINA'):?>
+															<?php if($tipo->id_tipo_pago <= 8):?>
+																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.($tipo->monto * $this->config->item('precio_cambio'))?></option>
+															<?php endif; ?>	
+														<?php else:?>
+															<?php if($tipo->id_tipo_pago > 8):?>
+																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.($tipo->monto * $this->config->item('precio_cambio'))?></option>
+															<?php endif; ?>
 														<?php endif; ?>
-													<?php endif; ?>
-												<?php endforeach; ?>
-											</select>
+													<?php endforeach; ?>
+												</select>
+											
 									</div>
 									<div class="form-group">
 											<br>
-											<input class="form-control btn-warning" placeholder="Password" type="submit" value="mypassword">
+											<input class="form-control btn-warning" type="submit" value="Bono">
 									</div>
+									</form>
 							    </div>
 							    <div role="tabpanel" class="tab-pane" id="profile">
 							    	<h4>Lista de trabajos</h4>
@@ -74,22 +79,32 @@
 										<thead>
 											<tr>
 												<th>Titulo</th>
+												<th>Pagado</th>
 												<th>generar ticket</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="odd gradeX ">
-												<td>Trabajo</td>
-												<td><input type="button" class="btn btn-warning" value="imprimir"></td>
-											</tr>
-											<tr class="odd gradeX ">
-												<td>Trabajo</td>
-												<td><input type="button" class="btn btn-warning" value="imprimir"></td>
-											</tr>
-											<tr class="odd gradeX ">
-												<td>Trabajo</td>
-												<td><input type="button" class="btn btn-primary" value="pagado" disabled=""></td>
-											</tr>
+											<?php foreach($trabajos as $trabajo):?>
+												<tr class="odd gradeX ">
+													<td><?=$trabajo->titulo?></td>
+													<td>
+														<?php if($trabajo->estado != NULL): ?>
+															<?=$trabajo->estado?>
+															<?php 
+																$url =  base_url("bono/registrar_trabajos/") .$idpersona.'/'. $trabajo->trabajo;
+																$disable = 'disabled';
+															?>
+														<?php else :?>
+															NO
+															<?php 
+																$url = ''; 
+																$disable = '';
+															?>
+														<?php endif; ?>
+													</td>
+													<td><a class="btn btn-warning" href="<?=$url?>" <?=$disable?>>Imprimir</a></td>
+												</tr>
+											<?php endforeach; ?>
 										</tbody>
 									</table>
 							    </div>
@@ -98,25 +113,38 @@
 										<thead>
 											<tr>
 												<th>Titulo</th>
-												<th>Fecha</th>
 												<th>Tipo pago</th>
+												<th>Monto</th>
 												<th>Estado</th>
+												<th></th>
 											</tr>
 										</thead>
 										<tbody>
+										 <?php foreach ($trabajos_pagados as $pagados): ?>
 											<tr class="odd gradeX ">
-												<td>Trabajo 1</td>
-												<td>14/7/2017</td>
-												<td>Autor</td>
-												<td>Pagado</td>
+												<td><?php echo (is_null($pagados->titulo)) ? '-' : $pagados->titulo?></td>
+												<td><?=$pagados->tipo?></td>
+												<td><?=$pagados->monto?></td>
+												<td><?=$pagados->estado?></td>
+												<td><?php if($pagados->id_estado == 2): ?>
+															<?php 
+																$url =  base_url("bono/imprimir/") .$pagados->id_ticket;
+																$disable = 'disabled';
+																$link = '<a class="btn btn-warning" href="'. $url .'" disable>Reimprimir</a>';
+															?>
+														<?php else :?>
+															<?php 
+																$url = ''; 
+																$disable = '';
+																$link = '<a class="btn btn-success" disabled>Pagado</a>';
+															?>
+														<?php endif; ?>
+														
+														<?= $link ?>	
+												</td>
+
 											</tr>
-											<tr class="odd gradeX ">
-												<td>Trabajo 1</td>
-												<td>14/7/2017</td>
-												<td>Autor</td>
-												<td>Pagado</td>
-											</tr>
-											
+										<?php endforeach;?>
 										</tbody>
 									</table>
 							    </div>
