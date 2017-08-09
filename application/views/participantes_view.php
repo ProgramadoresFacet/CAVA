@@ -18,13 +18,8 @@
 									<?php for($i=1; $i<100;$i++):?>
 									<?php $url = base_url('participantes/update/').$i ?>
 									<tr class="odd gradeX">
-<<<<<<< HEAD
-										<td>María</td>
-										<td>Martinez<?=$i?></td>
-=======
 										<td><a href="<?=base_url('bono')?>">Sam<?=$i?></a></td>
 										<td>Benzeti</td>
->>>>>>> origin/master
 										<td>mail@contacto.com.ar</td>
 										<td class="center">Autor</td>
 										<td class="center"><a href="<?=$url?>"><span class="glyphicon glyphicon-edit"></span></a></td>
