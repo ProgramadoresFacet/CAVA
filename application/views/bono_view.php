@@ -17,15 +17,18 @@
 									</tr>
 								</thead>
 								<tbody>
+									<?php foreach ($personas as $persona):?>
+									<?php $pais = $persona->pais?>
 									<tr class="odd gradeX">
-										<td>Juan Carlos</td>
-										<td>Perez</td>
-										<td>maildecontacto@gmail.com</td>
-										<td class="center">Ponente</td>
-										<td>Colombia</td>
-										<td class="center"><a href="<?=base_url('participantes/update/44')?>"><span class="glyphicon glyphicon-edit"></span></td>
-										<td class="center"><span class="glyphicon glyphicon-trash"></span></td>
-									</tr>									
+										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->nombre?></a></td>
+										<td><a href="<?=base_url('bono')?>"><?=$persona->apellido?></a></td>
+										<td><?=$persona->mail?></td>
+										<td class="center"><?=$persona->rol?></td>
+										<td class="center"><?=$persona->pais?></td>
+										<td class="center"><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+									</tr>	
+									<?php endforeach; ?>								
 								</tbody>
 							</table>
 
@@ -47,9 +50,17 @@
 							    	<div class="form-group col-md-12">
 											<label>Tipo de pago</label>
 											<select class="form-control">
-												<option value="">docente/investigador</option>
-												<option value="">alumno posgrado</option>
-												<option value="">alumno sin trabjo</option>
+												<?php foreach ($tipopago as $tipo):?>
+													<?php if($pais != 'ARGENTINA'):?>
+														<?php if($tipo->id_tipo_pago <= 8):?>
+															<option value=""><?= $tipo->tipo . ' $' . $tipo->monto?></option>
+														<?php endif; ?>	
+													<?php else:?>
+														<?php if($tipo->id_tipo_pago > 8):?>
+															<option value=""><?= $tipo->tipo . ' $' . $tipo->monto?></option>
+														<?php endif; ?>
+													<?php endif; ?>
+												<?php endforeach; ?>
 											</select>
 									</div>
 									<div class="form-group">

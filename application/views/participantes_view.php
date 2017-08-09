@@ -10,22 +10,23 @@
 										<th>Apellido</th>
 										<th>Mail</th>
 										<th>Rol</th>
+										<th>Pais</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php for($i=1; $i<100;$i++):?>
-									<?php $url = base_url('participantes/update/').$i ?>
+									<?php foreach ($personas as $persona):?>
 									<tr class="odd gradeX">
-										<td><a href="<?=base_url('bono')?>">Sam<?=$i?></a></td>
-										<td>Benzeti</td>
-										<td>mail@contacto.com.ar</td>
-										<td class="center">Autor</td>
-										<td class="center"><a href="<?=$url?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->nombre?></a></td>
+										<td><a href="<?=base_url('bono')?>"><?=$persona->apellido?></a></td>
+										<td><?=$persona->mail?></td>
+										<td class="center"><?=$persona->rol?></td>
+										<td class="center"><?=$persona->pais?></td>
+										<td class="center"><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
 										<td class="center"><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
-									<?php endfor; ?>									
+									<?php endforeach; ?>									
 								</tbody>
 							</table>							
 						</div>
