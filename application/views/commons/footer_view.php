@@ -38,5 +38,12 @@
     <script src="<?=base_url('assets/template/')?>js/custom.js"></script>
     <script src="<?=base_url('assets/template/')?>js/tables.js"></script>
 
+    <script>
+     $('#myTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      })
+    </script>
+
   </body>
 </html>

@@ -12,7 +12,6 @@
 										<th>Mail</th>
 										<th>Rol</th>
 										<th>Pais</th>
-										<th>Pagado</th>
 										<th>Editar</th>
 										<th>Eliminar</th>
 									</tr>
@@ -24,69 +23,98 @@
 										<td>maildecontacto@gmail.com</td>
 										<td class="center">Ponente</td>
 										<td>Colombia</td>
-										<td class="center">No</td>
 										<td class="center"><a href="<?=base_url('participantes/update/44')?>"><span class="glyphicon glyphicon-edit"></span></td>
 										<td class="center"><span class="glyphicon glyphicon-trash"></span></td>
 									</tr>									
 								</tbody>
 							</table>
 
-							<select class="form-control">
-								<option value="">Autor</option>
-								<option value="">Docente 5 alumnos</option>
-								<option value="">ponente</option>
-								<option value="">alumno posgrado</option>
-							</select>
+							<!-- {} -->
+							<br><br>
+							<div>
 
+							  <!-- Nav tabs -->
+							  <ul class="nav nav-tabs" role="tablist">
+							    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Pagar por asistencia</a></li>
+							    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Pagar por trabajo</a></li>
+							    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Pagos realizados</a></li>
+							  </ul>
 
-								<h3>Lista de trabajos</h3>
-							<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-								<thead>
-									<tr>
-										<th>Titulo</th>
-										<th>check</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php for($i=1; $i<3;$i++):?>
-									<?php $url = base_url('participantes/update/').$i ?>
-									<tr class="odd gradeX ">
-										<td>Trabajo Nº<?=$i?></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<?php endfor; ?>	
-									
-									<?php for($i=1; $i<3;$i++):?>
-									<?php $url = base_url('participantes/update/').$i ?>
-									<tr class="odd gradeX btn-warning">
-										<td>Trabajo Nº<?=$i?></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<?php endfor; ?>
+							  <!-- Tab panes -->
+							  <br>
+							  <div class="tab-content">
+							    <div role="tabpanel" class="tab-pane active" id="home">
+							    	<div class="form-group col-md-12">
+											<label>Tipo de pago</label>
+											<select class="form-control">
+												<option value="">docente/investigador</option>
+												<option value="">alumno posgrado</option>
+												<option value="">alumno sin trabjo</option>
+											</select>
+									</div>
+									<div class="form-group">
+											<br>
+											<input class="form-control btn-warning" placeholder="Password" type="submit" value="mypassword">
+									</div>
+							    </div>
+							    <div role="tabpanel" class="tab-pane" id="profile">
+							    	<h4>Lista de trabajos</h4>
+									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+										<thead>
+											<tr>
+												<th>Titulo</th>
+												<th>generar ticket</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="odd gradeX ">
+												<td>Trabajo</td>
+												<td><input type="button" class="btn btn-warning" value="imprimir"></td>
+											</tr>
+											<tr class="odd gradeX ">
+												<td>Trabajo</td>
+												<td><input type="button" class="btn btn-warning" value="imprimir"></td>
+											</tr>
+											<tr class="odd gradeX ">
+												<td>Trabajo</td>
+												<td><input type="button" class="btn btn-primary" value="pagado" disabled=""></td>
+											</tr>
+										</tbody>
+									</table>
+							    </div>
+							    <div role="tabpanel" class="tab-pane" id="messages">
+							    	<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+										<thead>
+											<tr>
+												<th>Titulo</th>
+												<th>Fecha</th>
+												<th>Tipo pago</th>
+												<th>Estado</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="odd gradeX ">
+												<td>Trabajo 1</td>
+												<td>14/7/2017</td>
+												<td>Autor</td>
+												<td>Pagado</td>
+											</tr>
+											<tr class="odd gradeX ">
+												<td>Trabajo 1</td>
+												<td>14/7/2017</td>
+												<td>Autor</td>
+												<td>Pagado</td>
+											</tr>
+											
+										</tbody>
+									</table>
+							    </div>
+							    <div role="tabpanel" class="tab-pane" id="settings">.asfasf</div>
+							  </div>
 
-									<?php for($i=1; $i<3;$i++):?>
-									<?php $url = base_url('participantes/update/').$i ?>
-									<tr class="odd gradeX btn-success">
-										<td>Trabajo Nº<?=$i?></td>
-										<td><input type="checkbox"></td>
-									</tr>
-									<?php endfor; ?>	
+							</div>
 
-								</tbody>
-							</table>
-
-
-
-								<div class="col-md-6">
-									<div class="well" style="margin-top:30px;">
-				                        <button type="button" class="btn btn-lg btn-block btn-warning">Generar Bono</button>
-		                            </div>
-								</div>
-								<div class="col-md-6">
-									<div class="well" style="margin-top:30px;">
-				                        <button type="button" class="btn btn-lg btn-block btn-success">Generar Sticker</button>
-		                            </div>
-								</div>
 							</div>
 						</div>
 </div>
+
