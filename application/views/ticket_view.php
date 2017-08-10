@@ -8,9 +8,9 @@
 					  				<form class="form-inline" role="form" method="post" action="<?=base_url('ticket/codigo')?>">
 									
 										<fieldset>
-											<div class="form-group col-sm-3">
+											<div class="form-group col-md-6">
 												<label class="sr-only" for="exampleInputEmail2">Codigo Ticket</label>
-												<input type="number" name="codigo"  class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+												<input type="number" name="codigo"  class="form-control" id="exampleInputEmail2" min="1" placeholder="codigo">
 											</div>
 											<button type="submit" class="btn btn-primary">
 												Pagar

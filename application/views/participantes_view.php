@@ -19,12 +19,12 @@
 									<?php foreach ($personas as $persona):?>
 									<tr class="odd gradeX">
 										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->nombre?></a></td>
-										<td><a href="<?=base_url('bono')?>"><?=$persona->apellido?></a></td>
+										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->apellido?></a></td>
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
-										<td class="center"><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+										<td class="center"><a href="<?=base_url('participantes')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href="<?=base_url('participantes')?><?='/eliminar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
 									<?php endforeach; ?>									
 								</tbody>

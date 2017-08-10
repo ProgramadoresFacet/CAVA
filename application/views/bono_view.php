@@ -4,7 +4,7 @@
 			  			</div>
 			  			<div class="content-box-large box-with-header">
 
-			  				<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+			  				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" id="">
 								<thead>
 									<tr>
 										<th>Nombre</th>
@@ -20,8 +20,8 @@
 									<?php foreach ($personas as $persona):?>
 									<?php $pais = $persona->pais?>
 									<tr class="odd gradeX">
-										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->nombre?></a></td>
-										<td><a href="<?=base_url('bono')?>"><?=$persona->apellido?></a></td>
+										<td><?=$persona->nombre?></td>
+										<td><?=$persona->apellido?></td>
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>

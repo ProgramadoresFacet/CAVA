@@ -5,7 +5,7 @@
 			<th>Apellido</th>
 			<th>Mail</th>
 			<th>Rol</th>
-			<th>Tipo</th>
+			<th>Tipo pago</th>
 			<th>Estado</th>
 			<th>Titulo</th>
 		</tr>
