@@ -56,11 +56,11 @@
 												<select class="form-control" name="tipopago">
 													<?php foreach ($tipopago as $tipo):?>
 														<?php if($pais != 'ARGENTINA'):?>
-															<?php if($tipo->id_tipo_pago <= 8):?>
+															<?php if($tipo->id_tipo_pago > 1 AND  $tipo->id_tipo_pago <= 8):?>
 																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.number_format($tipo->monto * $this->config->item('precio_cambio'),2,',','')?></option>
 															<?php endif; ?>	
 														<?php else:?>
-															<?php if($tipo->id_tipo_pago > 8):?>
+															<?php if($tipo->id_tipo_pago > 9):?>
 																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.number_format($tipo->monto * $this->config->item('precio_cambio'),2,',','')?></option>
 															<?php endif; ?>
 														<?php endif; ?>
