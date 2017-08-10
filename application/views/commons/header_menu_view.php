@@ -28,27 +28,12 @@
 	           <div class="col-md-5">
 	              <div class="row">
 	                <div class="col-lg-12">
-	                  <div class="input-group form">
-	                       <input type="text" class="form-control" placeholder="Buscar participante">
-	                       <span class="input-group-btn">
-	                         <button class="btn btn-primary" type="button">Buscar</button>
-	                       </span>
-	                  </div>
 	                </div>
 	              </div>
 	           </div>
 	           <div class="col-md-2">
 	              <div class="navbar navbar-inverse" role="banner">
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-	                    <ul class="nav navbar-nav">
-	                      <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi cuenta<b class="caret"></b></a>
-	                        <ul class="dropdown-menu animated fadeInUp">
-	                          <li><a href="profile.html">Profile</a></li>
-	                          <li><a href="login.html">Logout</a></li>
-	                        </ul>
-	                      </li>
-	                    </ul>
 	                  </nav>
 	              </div>
 	           </div>
@@ -64,21 +49,11 @@
 			  	<div class="sidebar content-box" style="display: block;">
 	                <ul class="nav">
 	                    <!-- Main menu -->
-	                    <li><a href="<?=base_url('participantes')?>"><i class="glyphicon glyphicon-calendar"></i>Participantes</a></li>
-	                    <li class="current"><a href="<?=base_url('registrar')?>"><i class="glyphicon glyphicon-home"></i>Registrar</a></li>
-	                    <li><a href="<?=base_url('trabajos')?>"><i class="glyphicon glyphicon-stats"></i>Trabajos</a></li>
-	                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i>ticket</a></li>
-	                    <li class="submenu">
-	                         <a href="#">
-	                            <i class="glyphicon glyphicon-list"></i> Pages
-	                            <span class="caret pull-right"></span>
-	                         </a>
-	                         <!-- Sub menu -->
-	                         <ul>
-	                            <li><a href="login.html">Login</a></li>
-	                            <li><a href="signup.html">Signup</a></li>
-	                        </ul>
-	                    </li>
+	                    <li><a href="<?=base_url('participantes')?>"><span class="glyphicon glyphicon-user"></span> Participantes</a></li>
+	                    <li><a href="<?=base_url('registro')?>"><span class="glyphicon glyphicon-list-alt"></span> Registrar</a></li>
+	                    <li><a href="<?=base_url('trabajos')?>"><span class="glyphicon glyphicon-book"></span> Trabajos</a></li>
+	                    <li><a href="<?=base_url('ticket')?>"><span class="glyphicon glyphicon-barcode"></span> Ticket</a></li>
+	                    <li><a href="<?=base_url('ticket')?>"><span class="glyphicon glyphicon-stats"></span> Informe</a></li>
 	                </ul>
 	             </div>
 			  </div>

@@ -27,7 +27,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?=base_url('assets/template/')?>js/jquery.js"></script>
     <!-- jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="<?=base_url('assets/template/')?>js/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?=base_url('assets/template/')?>bootstrap/js/bootstrap.min.js"></script>
                 
