@@ -18,13 +18,13 @@
 								<tbody>
 									<?php foreach ($personas as $persona):?>
 									<tr class="odd gradeX">
-										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->nombre?></a></td>
-										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=$persona->apellido?></a></td>
+										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=strtoupper($persona->nombre)?></a></td>
+										<td><a href="<?=base_url('bono')?><?='/pagos/'.$persona->id_persona?>"><?=strtoupper($persona->apellido)?></a></td>
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
-										<td class="center"><a href="<?=base_url('participantes')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href="<?=base_url('participantes')?><?='/eliminar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-trash"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
 									<?php endforeach; ?>									
 								</tbody>
@@ -33,7 +33,7 @@
 
 						<div class="row">
 							<div class="col-md-12">
-								<a href="" class="btn btn-lg btn-block btn-primary">Registrar</a>
+								<a href="<?=base_url('registro')?>" class="btn btn-lg btn-block btn-primary">Registrar</a>
 							</div>
 						</div>
 </div>

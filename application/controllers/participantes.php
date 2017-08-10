@@ -23,18 +23,8 @@ class Participantes extends CI_Controller {
 		$this->load->view('commons/footer_view');
 	}
 
-	public function alta(){
 
-		
-	}
 
-	public function modificar($id = null){
-		if(is_null($id))
-			redirect('participantes');
-		$this->load->view('commons/header_menu_view');
-		$this->load->view('registro_update_view');
-		$this->load->view('commons/footer_view');
-	}
 
 	public function eliminar($id = null){
 		if(is_null($id))

@@ -1,12 +1,16 @@
 /************* CUSTOM ****************/
 .header {
-    background-color: #24292e !important;
+    background-color: #ffffff !important;
 }
 
 .panel-info>.panel-heading {
     color: #ffffff;
     background-color: #117cf3;
     border-color: #bce8f1;
+}
+
+.sidebar .nav li a:hover, .sidebar .nav li.current > a {
+    color: #ff9800 !important;
 }
 
 footer {

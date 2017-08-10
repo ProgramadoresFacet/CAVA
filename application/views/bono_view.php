@@ -20,13 +20,13 @@
 									<?php foreach ($personas as $persona):?>
 									<?php $pais = $persona->pais?>
 									<tr class="odd gradeX">
-										<td><?=$persona->nombre?></td>
-										<td><?=$persona->apellido?></td>
+										<td><?=strtoupper($persona->nombre)?></td>
+										<td><?=strtoupper($persona->apellido)?></td>
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
-										<td class="center"><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>	
 									<?php endforeach; ?>								
 								</tbody>
@@ -39,7 +39,7 @@
 							  <!-- Nav tabs -->
 							  <ul class="nav nav-tabs" role="tablist">
 							    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Pagar por asistencia</a></li>
-							    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Pagar por trabajo</a></li>
+							    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Pagar por trabajo como autor</a></li>
 							    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Pagos realizados</a></li>
 							  </ul>
 
@@ -56,11 +56,11 @@
 													<?php foreach ($tipopago as $tipo):?>
 														<?php if($pais != 'ARGENTINA'):?>
 															<?php if($tipo->id_tipo_pago <= 8):?>
-																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.($tipo->monto * $this->config->item('precio_cambio'))?></option>
+																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.number_format($tipo->monto * $this->config->item('precio_cambio'),2,',','')?></option>
 															<?php endif; ?>	
 														<?php else:?>
 															<?php if($tipo->id_tipo_pago > 8):?>
-																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.($tipo->monto * $this->config->item('precio_cambio'))?></option>
+																<option value="<?=$tipo->id_tipo_pago?>"> <?= $tipo->tipo . ' &nbsp;&nbsp;&nbsp; - U$D' . $tipo->monto . ' &nbsp;&nbsp;&nbsp; - AR$'.number_format($tipo->monto * $this->config->item('precio_cambio'),2,',','')?></option>
 															<?php endif; ?>
 														<?php endif; ?>
 													<?php endforeach; ?>
@@ -74,7 +74,11 @@
 									</form>
 							    </div>
 							    <div role="tabpanel" class="tab-pane" id="profile">
-							    	<h4>Lista de trabajos</h4>
+							    	<div class="alert alert-danger" role="alert">
+									 	<b>El PAGO COMO AUTOR ES DE U$D 150 O AR$ <?=number_format($this->config->item('precio_cambio') * 150,2,',','');?> POR CADA TRABAJO</b>
+									</div>
+							    	
+							    	<h5>Lista de trabajos</h5>
 									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 										<thead>
 											<tr>
@@ -86,7 +90,7 @@
 										<tbody>
 											<?php foreach($trabajos as $trabajo):?>
 												<tr class="odd gradeX ">
-													<td><?=$trabajo->titulo?></td>
+													<td><?=strtoupper($trabajo->titulo)?></td>
 													<td>
 														<?php if($trabajo->estado != NULL): ?>
 															<?=$trabajo->estado?>
@@ -112,18 +116,18 @@
 							    	<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 										<thead>
 											<tr>
-												<th>Titulo</th>
 												<th>Tipo pago</th>
+												<th>Titulo</th>
 												<th>Monto</th>
-												<th>Estado</th>
+												<th>Pagado</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 										 <?php foreach ($trabajos_pagados as $pagados): ?>
 											<tr class="odd gradeX ">
-												<td><?php echo (is_null($pagados->titulo)) ? '-' : $pagados->titulo?></td>
 												<td><?=$pagados->tipo?></td>
+												<td><?php echo (is_null($pagados->titulo)) ? '-' : $pagados->titulo?></td>
 												<td><?=$pagados->monto?></td>
 												<td><?=$pagados->estado?></td>
 												<td><?php if($pagados->id_estado == 2): ?>

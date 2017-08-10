@@ -21,7 +21,7 @@ class personas_model extends CI_model {
 
 	//devuelve un persona segun un ID
 	function get_id($id = null){
-		if(is_null($data))
+		if(is_null($id))
 			return false;
 
 		$this->db->where('id_persona',$id);

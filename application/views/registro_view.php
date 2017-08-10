@@ -25,7 +25,7 @@
 									<?php endif; ?>
 
 								    <div class="tab-pane active" id="tab1">
-								      <form class="form-horizontal" role="form" method="post" action="<?=base_url('registrar/nuevo')?>">
+								      <form class="form-horizontal" role="form" method="post" action="<?=base_url('registro/nuevo')?>">
 										  <div class="form-group">
 										    <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
 										    <div class="col-sm-10">
@@ -70,7 +70,7 @@
 								    </div>
 									<ul class="pager wizard">
 									  	<input type="submit" class="btn btn-primary pull-right" value="Registrar">
-									  	<a href="<?=base_url('registrar')?>" class="btn btn-default pull-right" style="margin-right:20px;">Limpiar formulario</a>
+									  	<a href="<?=base_url('registro')?>" class="btn btn-default pull-right" style="margin-right:20px;">Limpiar formulario</a>
 									</ul>
 									</form>
 								</div>	
