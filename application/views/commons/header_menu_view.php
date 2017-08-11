@@ -22,7 +22,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <a href="<?=base_url('registrar')?>"><img class="headerimg" src="<?=base_url('docs/logocava.png')?>"s width="27%" height="27%"></a>	                 
+	                 <a href="<?=base_url('participantes')?>"><img class="headerimg" src="<?=base_url('docs/logocava.png')?>"s width="27%" height="27%"></a>	                 
 	              </div>
 	           </div>
 	           <div class="col-md-5">
