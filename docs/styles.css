@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+}
+
+img {
+	display: block;
+    margin: auto;
+    width: 50%;
+}
+
+div.datos {
+	background-color: #E6E6E6;
+	width: 100%;
+	border-style: solid;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+
+table.precio {
+	width: 100%;
+}
+
+td.tdgrande {
+	width: 60%;
+}
+
+

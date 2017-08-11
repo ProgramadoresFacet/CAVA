@@ -58,7 +58,10 @@ public function __construct(){
 
 			$html = $this->load->view('bono_print', $data, true);
 
-			$this->m_pdf->pdf->writeHTML($html);
+			$stylesheet = file_get_contents(base_url('/docs/styles.css'));
+			
+			$this->m_pdf->pdf->WriteHTML($stylesheet,1);
+			$this->m_pdf->pdf->WriteHTML($html,2);
 			$this->m_pdf->pdf->Output($id_persona.'.pdf', 'I');
 		}
 		else{
