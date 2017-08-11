@@ -8,6 +8,7 @@ public function __construct(){
 	$this->load->model('personas_model');
 	$this->load->model('tipo_pagos_model');
 	$this->load->model('ticket_model');
+	$this->load->library('M_pdf');
 }
 
 
@@ -46,8 +47,12 @@ public function __construct(){
 			'id_persona'   => $id_persona
 		];
 
+
+		$html = '<div>HOLA</div>';
 		if($this->ticket_model->insert($data)){
-			echo 'generar bono';
+			//echo 'generar bono';	
+			$this->m_pdf->pdf->writeHTML($html);
+			$this->m_pdf->pdf->Output($id_persona.'.pdf', 'I');
 		}
 		else{
 			echo 'error';
