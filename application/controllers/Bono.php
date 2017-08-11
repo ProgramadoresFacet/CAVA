@@ -48,9 +48,16 @@ public function __construct(){
 		];
 
 
-		$html = '<div>HOLA</div>';
+		//$html = '<div>HOLA</div>';
+		
 		if($this->ticket_model->insert($data)){
-			//echo 'generar bono';	
+			//echo 'generar bono';
+			$ultimo = $this->ticket_model->get_ultimo_ticket_id();
+			
+			$data['ticket'] = $this->ticket_model->get_ticket($ultimo);
+
+			$html = $this->load->view('bono_print', $data, true);
+
 			$this->m_pdf->pdf->writeHTML($html);
 			$this->m_pdf->pdf->Output($id_persona.'.pdf', 'I');
 		}
