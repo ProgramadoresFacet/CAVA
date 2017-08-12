@@ -2,11 +2,11 @@
 			  			<div class="content-box-header panel-heading">
 		  					<div class="panel-title ">Ticket</div>
 			  			</div>
+			  			
 			  			<div class="content-box-large box-with-header">
 				  			<div id="rootwizard">
-								<div class="content-box-large box-with-header">
-					  				<form class="form-inline" role="form" method="post" action="<?=base_url('ticket/codigo')?>">
-									
+								<div class="content-box-large box-with-header">									
+					  				<form class="form-inline" role="form" method="post" action="<?=base_url('ticket/codigo')?>">										
 										<fieldset>
 											<div class="form-group col-md-6">
 												<label class="sr-only" for="exampleInputEmail2">Codigo Ticket</label>
