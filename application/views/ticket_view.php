@@ -20,6 +20,10 @@
 								</div>
 							</div>
 							<?php 
+								if(isset($alert))
+									echo '<div class="alert alert-danger">
+											  <strong>NUMERO NO VALIDO!</strong> El número ingresado no corresponde a un ticket activo.
+											</div>';
 								if(isset($mostrar))
 									$this->load->view('codigo_view');
 							?>

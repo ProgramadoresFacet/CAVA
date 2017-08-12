@@ -25,8 +25,12 @@ public function __construct(){
 			}
 		}		
 		$data['tickets'] = $this->ticket_model->get_ticket($id);
-		if($data['tickets'] == NULL){			
-			redirect('ticket');
+		if($data['tickets'] == NULL){	
+			$data['alert'] = TRUE;
+			$this->load->view('commons/header_menu_view');
+			$this->load->view('ticket_view',$data);
+			$this->load->view('commons/footer_view');	
+			//redirect('ticket');
 		}else{
 			$data['mostrar'] = TRUE;
 			$this->load->view('commons/header_menu_view');
