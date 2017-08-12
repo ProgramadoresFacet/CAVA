@@ -27,10 +27,13 @@ public function __construct(){
 		$this->load->view('commons/header_menu_view');
 		$this->load->view('ticket_view',$data);
 		$this->load->view('commons/footer_view');
+	}
 
-		
-		
-		
-		
+	public function cambiar_a_pagado($id){
+		//echo $id;
+		$data = [
+			'id_estado'    => 3
+		];
+		$this->ticket_model->update_pagado($id, $data);
 	}
 }

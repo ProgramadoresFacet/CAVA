@@ -10,10 +10,10 @@
 										<fieldset>
 											<div class="form-group col-md-6">
 												<label class="sr-only" for="exampleInputEmail2">Codigo Ticket</label>
-												<input type="number" name="codigo"  class="form-control" id="exampleInputEmail2" min="1" placeholder="codigo">
+												<input type="number" name="codigo"  class="form-control" id="exampleInputEmail2" min="1" placeholder="N° de Ticket de Pago">
 											</div>
 											<button type="submit" class="btn btn-primary">
-												Pagar
+												Ver
 											</button>
 										</fieldset>
 									</form>

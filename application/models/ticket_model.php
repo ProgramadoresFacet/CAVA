@@ -65,4 +65,13 @@ class ticket_model extends CI_model {
         }  
 	}
 
+	function update_pagado($id, $data){
+		if(is_null($id))
+			return false;
+	
+		$this->db->where('id_ticket',$id);
+		$this->db->update('ticket',$data);
+		return ($this->db->affected_rows() == 1) ? true : false;
+	}
+
 }
