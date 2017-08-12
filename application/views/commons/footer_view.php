@@ -40,9 +40,17 @@
 
     <script>
      $('#myTabs a').click(function (e) {
-        e.preventDefault()
+        e.preventDefault();
         $(this).tab('show')
       })
+    </script>
+
+    <script>
+      $(document).on('ready',function(){
+        $('#bono').click(function(){
+          setTimeout(function() { location.reload();  }, 1000);
+        });
+      });
     </script>
 
   </body>

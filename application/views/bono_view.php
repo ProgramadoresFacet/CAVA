@@ -40,6 +40,7 @@
 							    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Pagar por asistencia</a></li>
 							    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Pagar por trabajo como autor</a></li>
 							    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Pagos realizados</a></li>
+							    <li role="presentation"><a  href="<?=base_url('bono/pagos/')?><?=$idpersona?>" role="tab" >Recargar página</a></li>
 							  </ul>
 
 							  <!-- Tab panes -->
@@ -48,7 +49,7 @@
 								    <div role="tabpanel" class="tab-pane active" id="home">								    	
 								    	<br>
 										<label>Tipo de pago</label>
-										<form method="post" action="<?=base_url('Bono/registrar_asistencia')?>">											
+										<form method="post" action="<?=base_url('Bono/registrar_asistencia')?>" target="_blank"> 											
 											<input type="hidden" value="<?=$idpersona?>" name="idpersona">
 											<select class="form-control" name="tipopago">
 												<?php foreach ($tipopago as $tipo):?>
@@ -65,7 +66,7 @@
 											</select>											
 											<div class="form-group">
 												<br>
-												<input class="form-control btn-warning" type="submit" value="Generar Ticket">
+												<input class="form-control btn-warning" type="submit" id="bono" value="Generar Ticket">
 											</div>
 										</form>							
 							    	</div>
@@ -80,7 +81,7 @@
 												<tr>
 													<th>Titulo</th>
 													<th>Pagado</th>
-													<th>generar ticket</th>
+													<th>Generar ticket</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -88,21 +89,27 @@
 													<tr class="odd gradeX ">
 														<td><?=strtoupper($trabajo->titulo)?></td>
 														<td>
-															<?php if($trabajo->estado != NULL): ?>
-																<?=$trabajo->estado?>
-																<?php 
-																	$url =  base_url("bono/registrar_trabajos/") .$idpersona.'/'. $trabajo->trabajo;
-																	$disable = 'disabled';
-																?>
+															<?php if($trabajo->estado == NULL): ?>
+																<?php
+																 	echo 'NO';
+																 	$url   =  base_url("bono/registrar_trabajos/") .$idpersona.'/'. $trabajo->trabajo;
+																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank">Imprimir</a>';
+																 ?>
+															<?php elseif($trabajo->estado == 'EN TRAMITE'):?>
+																<?php
+																 	echo $trabajo->estado;
+																 	$url   =  base_url("bono/imprimir/") . $trabajo->id_ticket;
+																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank">Reimprimir</a>';
+																 ?>
 															<?php else :?>
-																NO
-																<?php 
-																	$url = ''; 
-																	$disable = '';
-																?>
+																<?php
+																 	echo $trabajo->estado;
+																 	$url   =  base_url("bono/imprimir/") . $trabajo->id_ticket;
+																 	$boton = '<a class="btn btn-success">Pagado</a>';
+																 ?>
 															<?php endif; ?>
 														</td>
-														<td><a class="btn btn-warning" href="<?=$url?>" <?=$disable?>>Imprimir</a></td>
+														<td><?=$boton?></td>
 													</tr>
 												<?php endforeach; ?>
 											</tbody>
@@ -130,13 +137,13 @@
 																<?php 
 																	$url =  base_url("bono/imprimir/") .$pagados->id_ticket;
 																	$disable = 'disabled';
-																	$link = '<a class="btn btn-warning" href="'. $url .'" disable>Reimprimir</a>';
+																	$link = '<a class="btn btn-warning" href="'. $url .'" target="_blank">Reimprimir</a>';
 																?>
 															<?php else :?>
 																<?php 
 																	$url = ''; 
 																	$disable = '';
-																	$link = '<a class="btn btn-success" disabled>Pagado</a>';
+																	$link = '<a class="btn btn-success">Pagado</a>';
 																?>
 															<?php endif; ?>
 															

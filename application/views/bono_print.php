@@ -1,5 +1,8 @@
-
-
+<html>
+  <head>
+  </head>
+  <body>
+    
     <div class="row">
       <img src="<?=base_url('docs/logocava2017.png')?>">
     </div>
@@ -10,7 +13,7 @@
           <table>
             <tr>
               <td>Nombre: &nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td><h3><b><?=$ticket->apellido?>, <?=$ticket->nombre?></b></h3></td>
+              <td><h3><b><?=strtoupper($ticket->apellido)?>, <?=strtoupper($ticket->nombre)?></b></h3></td>
             </tr>
             <tr>
               <td>E-Mail: </td>
@@ -46,10 +49,13 @@
             </tr>
             <tr>
               <td><h2><b><?=$ticket->id_ticket?></b></h2></td>
-              <td><h2><b>AR$ <?=$ticket->pesos?></b></h2></td>
-              <td><h2><b>U$S <?=$ticket->pesos / $this->config->item('precio_cambio')?></b></h2></td>
+              <td><h2><b>AR$ <?=number_format($ticket->pesos,2,',','');?></b></h2></td>
+              <td><h2><b>U$S <?=number_format($ticket->pesos / $this->config->item('precio_cambio'),2,',','');?></b></h2></td>
             </tr>                      
           </table>
         </div>
       <?php endforeach; ?>
     </div>
+
+  </body>
+</html>

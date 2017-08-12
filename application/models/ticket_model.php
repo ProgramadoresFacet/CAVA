@@ -54,7 +54,7 @@ class ticket_model extends CI_model {
 		return $query->result();
 	}	
 
-	function get_ultimo_ticket_id($id_ticket = null){
+	function get_ultimo_ticket_id(){
 		$this->db->select_max('id_ticket');
         $query = $this->db->get('ticket')->result();
         foreach ($query as $key) {

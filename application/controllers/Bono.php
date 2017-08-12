@@ -46,23 +46,10 @@ public function __construct(){
 			'id_trabajo'   => null,
 			'id_persona'   => $id_persona
 		];
-
-
-		//$html = '<div>HOLA</div>';
 		
 		if($this->ticket_model->insert($data)){
-			//echo 'generar bono';
 			$ultimo = $this->ticket_model->get_ultimo_ticket_id();
-			
-			$data['ticket'] = $this->ticket_model->get_ticket($ultimo);
-
-			$html = $this->load->view('bono_print', $data, true);
-
-			$stylesheet = file_get_contents(base_url('/docs/styles.css'));
-			
-			$this->m_pdf->pdf->WriteHTML($stylesheet,1);
-			$this->m_pdf->pdf->WriteHTML($html,2);
-			$this->m_pdf->pdf->Output($id_persona.'.pdf', 'I');
+			$this->imprimir($ultimo);
 		}
 		else{
 			echo 'error';
@@ -70,8 +57,10 @@ public function __construct(){
 	}
 
 	public function registrar_trabajos($id_persona = null,$id_trabajo = null){
-		if($id_trabajo == null)
-			echo 'nada';
+		if(is_null($id_persona) || is_null($id_trabajo))
+			redirect('participantes');
+
+		
 		$pesos =  $this->tipo_pagos_model->get_monto(1) * $this->config->item('precio_cambio'); 
 		$data = [
 			'id_estado'    => 2,
@@ -82,14 +71,24 @@ public function __construct(){
 		];
 
 		if($this->ticket_model->insert($data)){
-			echo 'generar bono';
+			$ultimo = $this->ticket_model->get_ultimo_ticket_id();
+			$this->imprimir($ultimo);
 		}
 		else{
 			echo 'error';
 		}
+
 	}
 
 	public function imprimir($id = null){
-		echo $id;
+		if(is_null($id))
+			redirect('participantes');
+
+		$data['ticket'] = $this->ticket_model->get_ticket($id);
+		$html = $this->load->view('bono_print', $data,true);
+		$stylesheet = file_get_contents(base_url('/docs/styles.css'));
+		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
+		$this->m_pdf->pdf->WriteHTML($html,2);
+		$this->m_pdf->pdf->Output($id_persona.'.pdf', 'I');
 	}
 }
