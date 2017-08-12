@@ -15,7 +15,8 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Sistema CAVA 2017 - <a href='http://www.facebook.com' target="_blank">Pablo Gallardo <i class="fa fa-facebook-official" aria-hidden="true"></i></a> -  
+               <a target="_blank" href="https://www.linkedin.com/in/samuel-benitez-877657127/">Samuel Benítez <i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
             
          </div>
@@ -46,12 +47,75 @@
     </script>
 
     <script>
+
       $(document).on('ready',function(){
+
         $('#bono').click(function(){
           setTimeout(function() { location.reload();  }, 1000);
         });
+
+        $('.eliminar').on('click',function(e){
+          e.preventDefault();
+          if(confirm('ELIMINAR PARTICIPANTE?')){
+            location.href = $(this).attr('href');
+          }
+        });
+
+        $('body').on('click','.open_modal',function(){
+          id_trabajo = $(this).attr('data-idtrabajo');
+          id_persona = $(this).attr('data-idpersona');
+          estado = $(this).attr('data-estado');
+
+          $('#t_no').css('display','none');
+          $('#t_tramite').css('display','none');
+          $('#t_si').css('display','none');
+
+          if(estado == 'NO')
+              $('#t_no').css('display','block');
+          else if(estado == 'EN TRAMITE')
+            $('#t_tramite').css('display','block');
+          else
+            $('#t_si').css('display','block');
+
+          $.ajax({
+            url  : '<?=base_url('trabajos/escritos_ajax')?>',
+            type : 'post',
+            data : {id_trabajo : id_trabajo},
+            success: function(data){
+              data =  JSON.parse(data);
+              $('.modal-title').html('<b>' + data[0].titulo + '</b>'); 
+              $('#mails').html('');
+              for(i=0;i<data.length;i++){
+
+                html  = '<tr>';
+                html += '<td>'+data[i].nombre+'</td>';
+                html += '<td>'+data[i].apellido+'</td>';
+                html += '<td>'+data[i].mail+'</td>';
+
+
+
+                if(id_persona == data[i].id_persona)
+                  html += '<td><span class="glyphicon glyphicon-envelope"></span></td>';
+                else
+                  html += '<td>&nbsp;</td>';
+
+                $('#mails').append(html);
+              }
+              
+              console.log(data);
+            }
+          });
+
+
+
+        })
+      
+
       });
+
+      
     </script>
+
 
   </body>
 </html>

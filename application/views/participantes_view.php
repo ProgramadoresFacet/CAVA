@@ -3,6 +3,15 @@
 		  					<div class="panel-title ">Participantes</div>
 			  			</div>
 			  			<div class="content-box-large box-with-header">
+							
+							<?php if(isset($eliminado)): ?>
+							<div class="alert alert-danger" role="alert">
+							  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							  <span class="sr-only">Error:</span>
+							  Partcipante eliminado
+							</div>
+							<?php endif; ?>
+
 			  				<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 								<thead>
 									<tr>
@@ -23,8 +32,8 @@
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-trash"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>" class="eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
 									<?php endforeach; ?>									
 								</tbody>

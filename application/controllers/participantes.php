@@ -12,23 +12,11 @@ class Participantes extends CI_Controller {
 	public function index()
 	{		
 		$this->load->view('commons/header_menu_view');
-		/*
-		echo '<pre>';
-		print_r(  $this->personas_model->get() );
-		echo '</pre>';
-		*/
 		$data['personas'] = $this->personas_model->get();
-
 		$this->load->view('participantes_view',$data);
 		$this->load->view('commons/footer_view');
 	}
 
 
 
-
-	public function eliminar($id = null){
-		if(is_null($id))
-			redirect('participantes');
-		
-	}
 }

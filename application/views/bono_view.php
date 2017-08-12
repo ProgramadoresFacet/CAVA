@@ -25,7 +25,7 @@
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
 										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-trash"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>" class="eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>	
 									<?php endforeach; ?>								
 								</tbody>

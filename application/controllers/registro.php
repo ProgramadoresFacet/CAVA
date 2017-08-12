@@ -114,14 +114,21 @@ class Registro extends CI_Controller {
         $this->form_validation->set_message('valid_email','Mail debe  tener un formato válido');
 	}
 
+	public function eliminar($id = null){
+		if(is_null($id))
+			redirect('participantes');
 
-	private function p($data){
-		echo '<br>';
-		echo '<pre>';
-		print_r($data);
-		echo '<pre>';
-		echo '<br>';
+		if($this->personas_model->delete($id)){
+			$data['eliminado'] = true;
+			$this->load->view('commons/header_menu_view');
+			$data['personas'] = $this->personas_model->get();
+			$this->load->view('participantes_view',$data);
+			$this->load->view('commons/footer_view');
+		}
+		
 	}
+
+
 
 
 }
