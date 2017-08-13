@@ -8,6 +8,7 @@ public function __construct(){
 	$this->load->model('personas_model');
 	$this->load->model('tipo_pagos_model');
 	$this->load->model('ticket_model');
+	$this->load->library('M_pdf');
 }
 	
 	public function index()
@@ -45,5 +46,17 @@ public function __construct(){
 		];
 		$this->ticket_model->update_pagado($id, $data);
 		$this->codigo($id);
+	}
+
+	public function imprimir_identificacion($id = null){
+		if(is_null($id))
+			redirect('ticket');
+		
+		$data['ticket'] = $this->ticket_model->get_ticket($id);
+		$html = $this->load->view('identificacion_print', $data,true);
+		$stylesheet = file_get_contents(base_url('/docs/styles.css'));
+		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
+		$this->m_pdf->pdf->WriteHTML($html,2);
+		$this->m_pdf->pdf->Output($id.'ticket.pdf', 'I');
 	}
 }
