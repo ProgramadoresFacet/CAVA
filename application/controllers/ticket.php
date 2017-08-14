@@ -9,6 +9,7 @@ public function __construct(){
 	$this->load->model('tipo_pagos_model');
 	$this->load->model('ticket_model');
 	$this->load->library('M_pdf');
+	$this->load->library('my_phpmailer');
 }
 	
 	public function index()
@@ -46,6 +47,8 @@ public function __construct(){
 		];
 		$this->ticket_model->update_pagado($id, $data);
 		$this->codigo($id);
+
+		$this->load->library('email');
 	}
 
 	public function imprimir_identificacion($id = null){
@@ -58,5 +61,34 @@ public function __construct(){
 		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
 		$this->m_pdf->pdf->WriteHTML($html,2);
 		$this->m_pdf->pdf->Output($id.'ticket.pdf', 'I');
+	}
+
+	public function enviar_email(){				
+		$this->mail = new my_phpmailer;
+		$this->mail->IsSMTP();		
+		$this->mail->SMTPDebug = 2;
+		
+		$this->mail->Host = "smtp.gmail.com";
+		$this->mail->SMTPSecure = "ssl";
+		$this->mail->Port = 465;
+		$this->mail->SMTPAuth = true;
+		$this->mail->Username = "2017cava@gmail.com";
+		$this->mail->Password = "cava1234";
+
+		$this->mail->From = "2017cava@gmail.com";
+		$this->mail->FromName = "CAVA";
+		$this->mail->AddAddress("2017cava@gmail.com", "Cava");
+
+		$this->mail->Subject = "Contacto";
+		$this->mail->Body = "HOla mundo";
+
+		//$mail->WordWrap = 100;
+
+		if ($this->mail->Send()) {
+			echo "mail enviado";
+		}else{
+			echo "no se envio";
+		}
+		
 	}
 }
