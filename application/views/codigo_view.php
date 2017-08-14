@@ -1,4 +1,4 @@
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" >
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -6,7 +6,7 @@
 			<th>Mail</th>
 			<th>Rol</th>
 			<th>Tipo pago</th>
-			<th>Estado</th>
+			<th>Pagado</th>
 			<th>Titulo</th>
 		</tr>
 	</thead>
