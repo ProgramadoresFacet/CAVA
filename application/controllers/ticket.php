@@ -74,8 +74,9 @@ public function __construct(){
 		$cuepo_email = "Estimado Sr/Sra ".$apellido.", ".$nombre.". 
 						Nos dirigimos a ud con el fin de entregarle por este medio el Certificado del Congreso CAVA 2017 debido a su participacion como ".$rol.". 
 							Muchas gracias.";
-
 		
+		$pdfadjunto = $this->certificado_adjunto($id);
+
 		$this->mail = new my_phpmailer;
 		$this->mail->IsSMTP();		
 		//$this->mail->SMTPDebug = 2;
@@ -94,11 +95,21 @@ public function __construct(){
 		$this->mail->Subject = "CAVA 2017 - Certificado";
 		$this->mail->Body = $cuepo_email;
 
+		$this->mail->addStringAttachment($pdfadjunto, 'certificado.pdf');
+
 		//$mail->WordWrap = 100;
 
 		if (!$this->mail->Send()) {
 			echo "no se envio";
-		}
-		
+		}		
+	}
+
+	public function certificado_adjunto($id){
+		$data['ticket'] = $this->ticket_model->get_ticket($id);
+		$html = $this->load->view('certificado_print', $data,true);
+		$stylesheet = file_get_contents(base_url('/docs/styles2.css'));
+		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
+		$this->m_pdf->pdf->WriteHTML($html,2);
+		return $this->m_pdf->pdf->Output('', 'S');		
 	}
 }
