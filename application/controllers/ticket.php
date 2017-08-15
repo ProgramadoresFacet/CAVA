@@ -20,20 +20,20 @@ public function __construct(){
 	}
 
 	public function codigo($id = null){
-		if($id == null){
+		if($id == null){ 
 			$id = $this->input->post('codigo');
 			if(is_null($id) || empty($id)){				
 				redirect('ticket');
 			}
 		}		
-		$data['tickets'] = $this->ticket_model->get_ticket($id);
+		$data['tickets'] = $this->ticket_model->get_ticket($id);		
 		if($data['tickets'] == NULL){	
 			$data['alert'] = TRUE;
 			$this->load->view('commons/header_menu_view');
 			$this->load->view('ticket_view',$data);
 			$this->load->view('commons/footer_view');	
 			//redirect('ticket');
-		}else{
+		}else{			
 			$data['mostrar'] = TRUE;
 			$this->load->view('commons/header_menu_view');
 			$this->load->view('ticket_view',$data);
@@ -46,9 +46,8 @@ public function __construct(){
 			'id_estado'    => 3
 		];
 		$this->ticket_model->update_pagado($id, $data);
-		$this->codigo($id);
-
-		$this->load->library('email');
+		$this->enviar_email($id);
+		$this->codigo($id);		
 	}
 
 	public function imprimir_identificacion($id = null){
@@ -63,30 +62,41 @@ public function __construct(){
 		$this->m_pdf->pdf->Output($id.'ticket.pdf', 'I');
 	}
 
-	public function enviar_email(){				
+	public function enviar_email($id){
+		$data = $this->ticket_model->get_ticket($id);
+		foreach ($data as $ticket): 
+			$mail = $ticket->mail; 
+			$apellido = $ticket->apellido;
+			$nombre = $ticket->nombre;
+			$rol = $ticket->rol;
+		endforeach;
+
+		$cuepo_email = "Estimado Sr/Sra ".$apellido.", ".$nombre.". 
+						Nos dirigimos a ud con el fin de entregarle por este medio el Certificado del Congreso CAVA 2017 debido a su participacion como ".$rol.". 
+							Muchas gracias.";
+
+		
 		$this->mail = new my_phpmailer;
 		$this->mail->IsSMTP();		
-		$this->mail->SMTPDebug = 2;
+		//$this->mail->SMTPDebug = 2;
 		
 		$this->mail->Host = "smtp.gmail.com";
 		$this->mail->SMTPSecure = "ssl";
 		$this->mail->Port = 465;
 		$this->mail->SMTPAuth = true;
-		$this->mail->Username = "2017cava@gmail.com";
-		$this->mail->Password = "cava1234";
+		$this->mail->Username = $this->config->item('mail');
+		$this->mail->Password = $this->config->item('pass');
 
-		$this->mail->From = "2017cava@gmail.com";
+		$this->mail->From = $this->config->item('mail');
 		$this->mail->FromName = "CAVA";
-		$this->mail->AddAddress("2017cava@gmail.com", "Cava");
+		$this->mail->AddAddress($mail, "Cava");
 
-		$this->mail->Subject = "Contacto";
-		$this->mail->Body = "HOla mundo";
+		$this->mail->Subject = "CAVA 2017 - Certificado";
+		$this->mail->Body = $cuepo_email;
 
 		//$mail->WordWrap = 100;
 
-		if ($this->mail->Send()) {
-			echo "mail enviado";
-		}else{
+		if (!$this->mail->Send()) {
 			echo "no se envio";
 		}
 		

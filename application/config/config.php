@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $config['precio_cambio'] = 18.25;
+$config['mail'] = '2017cava@gmail.com';
+$config['pass'] = 'cava1234';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
