@@ -32,8 +32,9 @@
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>"><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>" class="eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>
+										<!--ACCESIBILIDAD // el atributo TITLE en las etiquetas A permite diferenciar enlaces que son iguales pero q llevan a distintos enlaces-->
+										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>" title="modificar a <?=$persona->apellido?>, <?=$persona->nombre?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>" class="eliminar" title="eliminar a <?=$persona->apellido?>, <?=$persona->nombre?>"><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
 									<?php endforeach; ?>									
 								</tbody>

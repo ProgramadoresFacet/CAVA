@@ -110,6 +110,6 @@ public function __construct(){
 		$stylesheet = file_get_contents(base_url('/docs/styles2.css'));
 		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
 		$this->m_pdf->pdf->WriteHTML($html,2);
-		return $this->m_pdf->pdf->Output('', 'S');		
+		return $this->m_pdf->pdf->Output('', 'S'); //envia el pdf como string		
 	}
 }

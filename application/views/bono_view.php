@@ -24,8 +24,9 @@
 										<td><?=$persona->mail?></td>
 										<td class="center"><?=$persona->rol?></td>
 										<td class="center"><?=$persona->pais?></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>""><span class="glyphicon glyphicon-edit"></span></a></td>
-										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>" class="eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>
+										<!--ACCESIBILIDAD // el atributo TITLE en las etiquetas A permite diferenciar enlaces que son iguales pero q llevan a distintos enlaces-->
+										<td class="center"><a href="<?=base_url('registro')?><?='/modificar/'.$persona->id_persona?>" title="modificar a <?=$persona->apellido?>, <?=$persona->nombre?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+										<td class="center"><a href="<?=base_url('registro')?><?='/eliminar/'.$persona->id_persona?>" class="eliminar" title="eliminar a <?=$persona->apellido?>, <?=$persona->nombre?>"><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>	
 									<?php endforeach; ?>								
 								</tbody>
@@ -93,19 +94,19 @@
 																<?php
 																 	echo 'NO';
 																 	$url   =  base_url("bono/registrar_trabajos/") .$idpersona.'/'. $trabajo->trabajo;
-																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank">Imprimir</a>';
+																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank" title="generar ticket: '.$trabajo->titulo.'">Generar Ticket</a>';
 																 ?>
 															<?php elseif($trabajo->estado == 'EN TRAMITE'):?>
 																<?php
 																 	echo $trabajo->estado;
 																 	$url   =  base_url("bono/imprimir/") . $trabajo->id_ticket;
-																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank">Reimprimir</a>';
+																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank" title="Volver a generar ticket: '.$trabajo->titulo.'">Volver a Generar Ticket</a>';
 																 ?>
 															<?php else :?>
 																<?php
 																 	echo $trabajo->estado;
 																 	$url   =  base_url("bono/imprimir/") . $trabajo->id_ticket;
-																 	$boton = '<a class="btn btn-success">Pagado</a>';
+																 	$boton = '<a class="btn btn-success disabled">Pagado</a>';
 																 ?>
 															<?php endif; ?>
 														</td>

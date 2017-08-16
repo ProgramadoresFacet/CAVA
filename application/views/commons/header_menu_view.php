@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es"> <!--ACCESIBILIDAD // lang="es"-->
   <head>
     <title>CAVA 2017</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,8 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <a href="<?=base_url('participantes')?>"><img class="headerimg" src="<?=base_url('docs/logocava.png')?>"s width="27%" height="27%"></a>	                 
+	              	 <!--ACCESIBILIDAD // el atributo ALT reemplaza las imagenes por el texto definido cuando no son cargadas-->
+	                 <a href="<?=base_url('participantes')?>"><img class="headerimg" src="<?=base_url('docs/logocava.png')?>" width="27%" height="27%" alt="CAVA"></a>                 
 	              </div>
 	           </div>
 	           <div class="col-md-5">
