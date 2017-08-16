@@ -59,7 +59,6 @@ public function __construct(){
 	public function registrar_trabajos($id_persona = null,$id_trabajo = null){
 		if(is_null($id_persona) || is_null($id_trabajo))
 			redirect('participantes');
-
 		
 		$pesos =  $this->tipo_pagos_model->get_monto(1) * $this->config->item('precio_cambio'); 
 		$data = [

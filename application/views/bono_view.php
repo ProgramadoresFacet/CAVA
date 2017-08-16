@@ -88,7 +88,9 @@
 											<tbody>
 												<?php foreach($trabajos as $trabajo):?>
 													<tr class="odd gradeX ">
-														<td><?=strtoupper($trabajo->titulo)?></td>
+														<td>
+															<?=strtoupper($trabajo->titulo)?>															
+														</td>
 														<td>
 															<?php if($trabajo->estado == NULL): ?>
 																<?php
@@ -100,7 +102,7 @@
 																<?php
 																 	echo $trabajo->estado;
 																 	$url   =  base_url("bono/imprimir/") . $trabajo->id_ticket;
-																 	$boton = '<a class="btn btn-warning" href="'.$url.'" target="_blank" title="Volver a generar ticket: '.$trabajo->titulo.'">Volver a Generar Ticket</a>';
+																 	$boton = '<a class="btn btn-success" disabled>En Tramite</a>';
 																 ?>
 															<?php else :?>
 																<?php
@@ -120,6 +122,7 @@
 								    	<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 											<thead>
 												<tr>
+													<th>N° de Ticket</th>
 													<th>Tipo pago</th>
 													<th>Titulo</th>
 													<th>Monto</th>
@@ -130,21 +133,19 @@
 											<tbody>
 											 	<?php foreach ($trabajos_pagados as $pagados): ?>
 												<tr class="odd gradeX ">
+													<td><?=$pagados->id_ticket?></td>
 													<td><?=$pagados->tipo?></td>
 													<td><?php echo (is_null($pagados->titulo)) ? '-' : $pagados->titulo?></td>
 													<td><?=$pagados->monto?></td>
 													<td><?=$pagados->estado?></td>
 													<td><?php if($pagados->id_estado == 2): ?>
 																<?php 
-																	$url =  base_url("bono/imprimir/") .$pagados->id_ticket;
-																	$disable = 'disabled';
-																	$link = '<a class="btn btn-warning" href="'. $url .'" target="_blank">Reimprimir</a>';
+																	$url =  base_url("bono/imprimir/") .$pagados->id_ticket;																	
+																	$link = '<a class="btn btn-warning" href="'. $url .'" target="_blank" title="volver a generar ticket:'.$pagados->tipo.','.$pagados->titulo.'">Volver a Generar Ticket</a>';
 																?>
 															<?php else :?>
-																<?php 
-																	$url = ''; 
-																	$disable = '';
-																	$link = '<a class="btn btn-success">Pagado</a>';
+																<?php 																	
+																	$link = '<a class="btn btn-success disabled">Pagado</a>';
 																?>
 															<?php endif; ?>
 															
