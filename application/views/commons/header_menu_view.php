@@ -51,10 +51,10 @@
 			  	<div class="sidebar content-box" style="display: block;">
 	                <ul class="nav">
 	                    <!-- Main menu -->
-	                    <li><a href="<?=base_url('participantes')?>"><span class="glyphicon glyphicon-user"></span> Participantes</a></li>
-	                    <li><a href="<?=base_url('registro')?>"><span class="glyphicon glyphicon-list-alt"></span> Registrar</a></li>
-	                    <li><a href="<?=base_url('trabajos')?>"><span class="glyphicon glyphicon-book"></span> Trabajos</a></li>
-	                    <li><a href="<?=base_url('ticket')?>"><span class="glyphicon glyphicon-barcode"></span> Ticket</a></li>
+	                    <li class="<?=(isset($participantes_menu)) ? 'current' : '' ?>"><a href="<?=base_url('participantes')?>"><span class="glyphicon glyphicon-user"></span> Participantes</a></li>
+	                    <li class="<?=(isset($registro_menu)) ? 'current' : '' ?>"><a href="<?=base_url('registro')?>"><span class="glyphicon glyphicon-list-alt"></span> Registrar</a></li>
+	                    <li class="<?=(isset($trabajos_menu)) ? 'current' : '' ?>"><a href="<?=base_url('trabajos')?>"><span class="glyphicon glyphicon-book"></span> Trabajos</a></li>
+	                    <li class="<?=(isset($ticket_menu)) ? 'current' : '' ?>"><a href="<?=base_url('ticket')?>"><span class="glyphicon glyphicon-barcode"></span> Ticket</a></li>
 	                    <li><a href="<?=base_url('ticket')?>"><span class="glyphicon glyphicon-stats"></span> Informe</a></li>
 	                </ul>
 	             </div>

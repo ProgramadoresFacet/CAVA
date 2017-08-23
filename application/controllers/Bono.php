@@ -22,7 +22,8 @@ public function __construct(){
 		$data['trabajos'] = $this->ticket_model->get();
 		$data['trabajos_pagados'] = $this->ticket_model->get($id);
 		$data['idpersona']= $id;
-		$this->load->view('commons/header_menu_view');
+		$data['participantes_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+		$this->load->view('commons/header_menu_view',$data);
 		$this->load->view('bono_view', $data);
 		$this->load->view('commons/footer_view');
 

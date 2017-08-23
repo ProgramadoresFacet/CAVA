@@ -13,11 +13,11 @@ class Registro extends CI_Controller {
 
 
 	public function index()
-	{
-		
+	{		
 		$data['roles'] =  $this->rol_model->get();
 		$data['paises'] = $this->pais_model->get();
-		$this->load->view('commons/header_menu_view');
+		$data['registro_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+		$this->load->view('commons/header_menu_view', $data);
 		$this->load->view('registro_view',$data);
 		$this->load->view('commons/footer_view');
 	}
@@ -43,7 +43,8 @@ class Registro extends CI_Controller {
 
         	$data['roles'] =  $this->rol_model->get();
 			$data['paises'] = $this->pais_model->get();
-        	$this->load->view('commons/header_menu_view');
+			$data['registro_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+        	$this->load->view('commons/header_menu_view',$data);
 		    $this->load->view('registro_view',$data);
 		    $this->load->view('commons/footer_view');
 

@@ -10,9 +10,10 @@ class Participantes extends CI_Controller {
 
 
 	public function index()
-	{		
-		$this->load->view('commons/header_menu_view');
-		$data['personas'] = $this->personas_model->get();
+	{	
+		$data['participantes_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+		$this->load->view('commons/header_menu_view',$data);
+		$data['personas'] = $this->personas_model->get();		
 		$this->load->view('participantes_view',$data);
 		$this->load->view('commons/footer_view');
 	}

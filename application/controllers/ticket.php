@@ -13,8 +13,9 @@ public function __construct(){
 }
 	
 	public function index()
-	{		
-		$this->load->view('commons/header_menu_view');
+	{	
+		$data['ticket_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+		$this->load->view('commons/header_menu_view',$data);
 		$this->load->view('ticket_view');
 		$this->load->view('commons/footer_view');
 	}
@@ -29,13 +30,15 @@ public function __construct(){
 		$data['tickets'] = $this->ticket_model->get_ticket($id);		
 		if($data['tickets'] == NULL){	
 			$data['alert'] = TRUE;
-			$this->load->view('commons/header_menu_view');
+			$data['ticket_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+			$this->load->view('commons/header_menu_view',$data);
 			$this->load->view('ticket_view',$data);
 			$this->load->view('commons/footer_view');	
 			//redirect('ticket');
 		}else{			
 			$data['mostrar'] = TRUE;
-			$this->load->view('commons/header_menu_view');
+			$data['ticket_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
+			$this->load->view('commons/header_menu_view',$data);
 			$this->load->view('ticket_view',$data);
 			$this->load->view('commons/footer_view');
 		}		
