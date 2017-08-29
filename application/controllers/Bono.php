@@ -87,8 +87,8 @@ public function __construct(){
 		$data['ticket'] = $this->ticket_model->get_ticket($id);
 		$html = $this->load->view('bono_print', $data,true);
 		$stylesheet = file_get_contents(base_url('/docs/styles.css'));
-		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
-		$this->m_pdf->pdf->WriteHTML($html,2);
-		$this->m_pdf->pdf->Output($id_persona.'.pdf', 'I');
+		$this->m_pdf->pdf_A4->WriteHTML($stylesheet,1);
+		$this->m_pdf->pdf_A4->WriteHTML($html,2);
+		$this->m_pdf->pdf_A4->Output($id_persona.'.pdf', 'I');
 	}
 }

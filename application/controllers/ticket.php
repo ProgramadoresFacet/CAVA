@@ -60,9 +60,9 @@ public function __construct(){
 		$data['ticket'] = $this->ticket_model->get_ticket($id);
 		$html = $this->load->view('identificacion_print', $data,true);
 		$stylesheet = file_get_contents(base_url('/docs/styles.css'));
-		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
-		$this->m_pdf->pdf->WriteHTML($html,2);
-		$this->m_pdf->pdf->Output($id.'ticket.pdf', 'I');
+		$this->m_pdf->pdf_A6L->WriteHTML($stylesheet,1);
+		$this->m_pdf->pdf_A6L->WriteHTML($html,2);
+		$this->m_pdf->pdf_A6L->Output($id.'ticket.pdf', 'I');
 	}
 
 	public function enviar_email($id){
@@ -104,15 +104,15 @@ public function __construct(){
 
 		if (!$this->mail->Send()) {
 			echo "no se envio";
-		}		
+		}
 	}
 
 	public function certificado_adjunto($id){
 		$data['ticket'] = $this->ticket_model->get_ticket($id);
 		$html = $this->load->view('certificado_print', $data,true);
 		$stylesheet = file_get_contents(base_url('/docs/styles2.css'));
-		$this->m_pdf->pdf->WriteHTML($stylesheet,1);
-		$this->m_pdf->pdf->WriteHTML($html,2);
-		return $this->m_pdf->pdf->Output('', 'S'); //envia el pdf como string		
+		$this->m_pdf->pdf_A4L->WriteHTML($stylesheet,1);
+		$this->m_pdf->pdf_A4L->WriteHTML($html,2);
+		return $this->m_pdf->pdf_A4L->Output('', 'S'); //envia el pdf como string		
 	}
 }
