@@ -74,4 +74,19 @@ class ticket_model extends CI_model {
 		return ($this->db->affected_rows() == 1) ? true : false;
 	}
 
+	function get_ticket_pagado(){
+		$sql = "SELECT t.id_trabajo as trabajo , t.* ,ti.*,e.*,tp.*, p.*,r.*,pa.* from 
+				ticket ti left join trabajos t 
+				on t.id_trabajo = ti.id_trabajo 
+				left join estado e on e.id_estado = ti.id_estado
+				left join tipo_pagos tp on ti.id_tipo_pago = tp.id_tipo_pago
+				left join personas p on p.id_persona = ti.id_persona
+				left join pais pa on pa.id_pais = p.id_pais
+				left join rol r on r.id_rol = p.id_rol 
+			    WHERE ti.id_estado = 3";
+		
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+
 }
