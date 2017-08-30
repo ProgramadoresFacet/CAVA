@@ -15,7 +15,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Sistema CAVA 2017 - <a href='http://www.facebook.com' target="_blank">Pablo Gallardo <i class="fa fa-facebook-official" aria-hidden="true"></i></a> -  
+               Sistema CAVA 2017 - <a href="https://www.linkedin.com/in/gal-pab/" target="_blank">Pablo Gallardo <i class="fa fa-linkedin" aria-hidden="true"></i></a> -  
                <a target="_blank" href="https://www.linkedin.com/in/samuel-benitez-877657127/">Samuel Benítez <i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
             
