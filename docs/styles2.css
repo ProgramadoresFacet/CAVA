@@ -1,5 +1,5 @@
-@page {
-	background: url("C:/xampp/htdocs/cava/docs/certificado.jpg"); 
+@page{
+	background: url("C:/xampp/htdocs/CAVA/docs/certificado.jpg"); 
 	background-image-resize:6;	
 }
 
@@ -33,6 +33,8 @@ div.identi {
 h1 {
 	font-size: 36px;
     letter-spacing: 2px;
+    font-family:  'Bookman Old Style';
+    color: rgb(84, 84, 84);
 }
 
 
