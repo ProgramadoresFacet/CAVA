@@ -49,7 +49,7 @@
 				</div>
 				<div class="form-group  col-sm-3">
 					<label class="sr-only" for="exampleInputPassword2">Imprimir</label>
-					<a class="form-control btn btn-success" href="<?=base_url('ticket/imprimir_identificacion/')?><?=$idticket?>" <?=$disabled_imprimir?> target="_blank">Imprimir</a>
+					<a class="form-control btn btn-success" href="<?=base_url('ticket/imprimir_identificacion/')?><?=$idticket?>" <?=$disabled_imprimir?> target="_blank">Imprimir Identificación</a>
 				</div>
 			</fieldset>
 			

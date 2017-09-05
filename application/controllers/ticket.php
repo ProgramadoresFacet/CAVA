@@ -102,9 +102,9 @@ public function __construct(){
 
 		//$mail->WordWrap = 100;
 
-		if (!$this->mail->Send()) {
+		/*if (!$this->mail->Send()) {
 			echo "no se envio";
-		}
+		}*/
 	}
 
 	public function certificado_adjunto($id){
