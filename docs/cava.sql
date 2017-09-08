@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2017 a las 04:53:00
+-- Tiempo de generación: 02-09-2017 a las 22:01:33
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -19,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cava`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `certificados`
+--
+
+CREATE TABLE `certificados` (
+  `id_ticket` int(11) NOT NULL,
+  `id_estado_certificado` int(11) NOT NULL DEFAULT '1',
+  `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `certificados`
+--
+
+INSERT INTO `certificados` (`id_ticket`, `id_estado_certificado`, `hora`) VALUES
+(1, 1, '2017-09-02 19:57:58'),
+(2, 1, '2017-09-02 19:52:41');
 
 -- --------------------------------------------------------
 
@@ -142,6 +162,25 @@ INSERT INTO `estado` (`id_estado`, `estado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `estado_certificado`
+--
+
+CREATE TABLE `estado_certificado` (
+  `id_estado_certificado` int(11) NOT NULL,
+  `estado_certificado` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estado_certificado`
+--
+
+INSERT INTO `estado_certificado` (`id_estado_certificado`, `estado_certificado`) VALUES
+(1, 'SIN ENVIAR'),
+(2, 'ENVIADO');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pais`
 --
 
@@ -186,7 +225,7 @@ INSERT INTO `personas` (`id_persona`, `nombre`, `apellido`, `mail`, `id_rol`, `i
 (118, 'VILMA DALILA', ' VARAS', 'verificar_mail@mail.com', 1, 1),
 (119, 'ANDREA LEONOR', 'AGUERO', 'verificar_mail@mail.com', 1, 1),
 (120, 'CRISTINA SUSANA', 'GRAMAJO', 'verificar_mail@mail.com', 1, 1),
-(121, 'MARCELO FABIO', 'ROLDAN', 'verificar_mail@mail.com', 1, 1),
+(121, 'MARCELO FABIO', 'ROLDAN', 'pu.benitez.samuel@gmail.com', 1, 1),
 (122, 'VANESA', 'GALLARDO', 'verificar_mail@mail.com', 1, 1),
 (123, 'CAMILLE ', 'GRINGS SILVA', 'verificar_mail@mail.com', 1, 1),
 (124, 'DÉBORA', 'NICE FERREIRA BARBOSA', 'verificar_mail@mail.com', 1, 1),
@@ -250,7 +289,9 @@ INSERT INTO `personas` (`id_persona`, `nombre`, `apellido`, `mail`, `id_rol`, `i
 (182, 'GLORIA', 'SIERRA', 'verificar_mail@mail.com', 1, 1),
 (183, 'MARIA LUISA', 'ALVAREZ MEJÍA', 'verificar_mail@mail.com', 1, 1),
 (184, 'DIANA LETICIA', 'DEL ROSARIO CRUZ', 'verificar_mail@mail.com', 1, 1),
-(185, 'SILVIA GABRIELA', 'RIVADENEIRA', 'verificar_mail@mail.com', 1, 1);
+(185, 'SILVIA GABRIELA', 'RIVADENEIRA', 'verificar_mail@mail.com', 1, 1),
+(186, 'JUANA', 'BENZT', 'sambenzt@gmail.com', 1, 1),
+(187, 'DANIEL', 'JOHNS', 'test@mail.com', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -281,13 +322,23 @@ INSERT INTO `rol` (`id_rol`, `rol`) VALUES
 
 CREATE TABLE `ticket` (
   `id_ticket` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha_ticket` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_estado` int(11) NOT NULL,
   `pesos` float NOT NULL,
   `id_tipo_pago` int(11) NOT NULL,
   `id_trabajo` int(11) DEFAULT NULL,
   `id_persona` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ticket`
+--
+
+INSERT INTO `ticket` (`id_ticket`, `fecha_ticket`, `id_estado`, `pesos`, `id_tipo_pago`, `id_trabajo`, `id_persona`) VALUES
+(1, '2017-09-02 15:33:50', 3, 2737.5, 1, 3, 121),
+(2, '2017-09-02 15:33:57', 3, 2737.5, 1, 9, 133),
+(3, '2017-08-31 01:12:30', 2, 2737.5, 10, NULL, 119),
+(4, '2017-09-02 03:20:59', 2, 912.5, 14, NULL, 127);
 
 -- --------------------------------------------------------
 
@@ -381,6 +432,13 @@ INSERT INTO `trabajos` (`id_trabajo`, `titulo`) VALUES
 --
 
 --
+-- Indices de la tabla `certificados`
+--
+ALTER TABLE `certificados`
+  ADD KEY `id_ticket` (`id_ticket`),
+  ADD KEY `id_estado_certificado` (`id_estado_certificado`);
+
+--
 -- Indices de la tabla `escriben`
 --
 ALTER TABLE `escriben`
@@ -392,6 +450,12 @@ ALTER TABLE `escriben`
 --
 ALTER TABLE `estado`
   ADD PRIMARY KEY (`id_estado`);
+
+--
+-- Indices de la tabla `estado_certificado`
+--
+ALTER TABLE `estado_certificado`
+  ADD PRIMARY KEY (`id_estado_certificado`);
 
 --
 -- Indices de la tabla `pais`
@@ -445,6 +509,11 @@ ALTER TABLE `trabajos`
 ALTER TABLE `estado`
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT de la tabla `estado_certificado`
+--
+ALTER TABLE `estado_certificado`
+  MODIFY `id_estado_certificado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
@@ -453,7 +522,7 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
@@ -463,7 +532,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `tipo_pagos`
 --
@@ -477,6 +546,13 @@ ALTER TABLE `trabajos`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `certificados`
+--
+ALTER TABLE `certificados`
+  ADD CONSTRAINT `certificados_ibfk_1` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `certificados_ibfk_2` FOREIGN KEY (`id_estado_certificado`) REFERENCES `estado_certificado` (`id_estado_certificado`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `escriben`

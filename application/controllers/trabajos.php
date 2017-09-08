@@ -11,13 +11,7 @@ class Trabajos extends CI_Controller {
 
 	public function index()
 	{
-		function p($data){
-		echo '<br>';
-		echo '<pre>';
-		print_r($data);
-		echo '<pre>';
-		echo '<br>';
-	    }
+		
 	    $data['trabajos_menu'] = TRUE; //para agregar la class current y quede de color el menu al abrir la pag
 
 		$t = $data['trabajos'] = $this->ticket_model->get();

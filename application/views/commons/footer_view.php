@@ -105,13 +105,36 @@
               console.log(data);
             }
           });
-
-
-
         })
       
 
-      });
+        //enviar mail
+        $(".enviar-mail").on('click',function(){
+          var td = $(this).parent();
+          var br = td.siblings('td.estado-td');
+
+          $.ajax({
+            url  : '<?=base_url('certificados/enviar_mail')?>',
+            type : 'post',
+            data : {id_ticket : $(this).attr('data-id-ticket')},
+            beforeSend : function(){
+                td.html('<img src="" title="enviando...">');
+            },
+            success : function(data){
+              if(data == 1){
+                br.text('ENVIADO');
+                td.html('<a class="btn btn-success">Enviado</a>');
+              }else{
+                alert('ocurrio un error al enviar');
+              }
+            },
+            error : function(){
+              alert('Error en el servidor');
+            }
+          });
+        });
+
+      });//jquery
 
       
     </script>

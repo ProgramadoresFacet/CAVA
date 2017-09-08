@@ -75,7 +75,7 @@ class ticket_model extends CI_model {
 	}
 
 	function get_ticket_pagado(){
-		$sql = "SELECT t.id_trabajo as trabajo , t.* ,ti.*,e.*,tp.*, p.*,r.*,pa.* from 
+		$sql = "SELECT t.id_trabajo as trabajo , t.* ,ti.*,e.*,tp.*, p.*,r.*,pa.*,ec.* from 
 				ticket ti left join trabajos t 
 				on t.id_trabajo = ti.id_trabajo 
 				left join estado e on e.id_estado = ti.id_estado
@@ -83,10 +83,14 @@ class ticket_model extends CI_model {
 				left join personas p on p.id_persona = ti.id_persona
 				left join pais pa on pa.id_pais = p.id_pais
 				left join rol r on r.id_rol = p.id_rol 
+				left join certificados ce on ce.id_ticket = ti.id_ticket
+				left join estado_certificado ec on ce.id_estado_certificado = ec.id_estado_certificado
 			    WHERE ti.id_estado = 3";
 		
 		$query = $this->db->query($sql);
 		return $query->result();
 	}
+
+	
 
 }
