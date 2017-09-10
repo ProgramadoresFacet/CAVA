@@ -24,9 +24,14 @@ class Certificados extends CI_Controller {
 	}
 
 	public function certificado_adjunto($id){
-		$data['ticket'] = $this->ticket_model->get_ticket($id);
+		$personas = $this->ticket_model->get_ticket($id);
+		
+		foreach ($personas as $persona) {
+			$data['nombre'] = $persona->nombre . ' ' . $persona->apellido;
+			$data['rol']    = strtolower($persona->rol);
+		}
 		$html 			= $this->load->view('certificado_print', $data,true);
-		$stylesheet 	= file_get_contents(base_url('/docs/styles2.css'));
+		$stylesheet 	= file_get_contents(base_url('/docs/certificado.css'));
 		$this->m_pdf->pdf_A4L->WriteHTML($stylesheet,1);
 		$this->m_pdf->pdf_A4L->WriteHTML($html,2);
 		return $this->m_pdf->pdf_A4L->Output('', 'S'); //envia el pdf como string		
@@ -35,12 +40,16 @@ class Certificados extends CI_Controller {
 	public function vista_previa($id = null){
 		if(is_null($id))
 			redirect('certificados');
-
-		$data['ticket'] = $this->ticket_model->get_ticket($id);
+		$personas = $this->ticket_model->get_ticket($id);
+		
+		foreach ($personas as $persona) {
+			$data['nombre'] = $persona->nombre . ' ' . $persona->apellido;
+			$data['rol']    = strtolower($persona->rol);
+		}
 		$html 			= $this->load->view('certificado_print', $data,true);
-		$stylesheet 	= file_get_contents(base_url('/docs/styles2.css'));
+		$stylesheet 	= file_get_contents(base_url('/docs/certificado.css'));
 		$this->m_pdf->pdf_A4L->WriteHTML($stylesheet,1);
-		$this->m_pdf->pdf_A4L->WriteHTML($html,2);
+	    $this->m_pdf->pdf_A4L->WriteHTML($html,2);
 		$this->m_pdf->pdf_A4L->Output('certificado.pdf', 'I');
 	}
 

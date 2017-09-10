@@ -110,6 +110,8 @@
 
         //enviar mail
         $(".enviar-mail").on('click',function(){
+          boton = $(this);
+          base_url = '<?=base_url()?>';
           var td = $(this).parent();
           var br = td.siblings('td.estado-td');
 
@@ -118,18 +120,20 @@
             type : 'post',
             data : {id_ticket : $(this).attr('data-id-ticket')},
             beforeSend : function(){
-                td.html('<img src="" title="enviando...">');
+                td.html('Enviando... &nbsp; &nbsp; <img witdh="30px" height="30px" src="' + base_url + '/assets/template/images/loading.gif' + '" title="Enviando...">');
             },
             success : function(data){
               if(data == 1){
                 br.text('ENVIADO');
                 td.html('<a class="btn btn-success">Enviado</a>');
               }else{
-                alert('ocurrio un error al enviar');
+                alert('ocurrio un error al enviar, verificar el mail de destino');
+                td.html('Error mail invalido ');
               }
             },
             error : function(){
               alert('Error en el servidor');
+              td.html('Error');
             }
           });
         });

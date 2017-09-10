@@ -55,8 +55,8 @@
 	                    <li class="<?=(isset($registro_menu)) ? 'current' : '' ?>"><a href="<?=base_url('registro')?>"><span class="glyphicon glyphicon-list-alt"></span> Registrar</a></li>
 	                    <li class="<?=(isset($trabajos_menu)) ? 'current' : '' ?>"><a href="<?=base_url('trabajos')?>"><span class="glyphicon glyphicon-book"></span> Trabajos</a></li>
 	                    <li class="<?=(isset($ticket_menu)) ? 'current' : '' ?>"><a href="<?=base_url('ticket')?>"><span class="glyphicon glyphicon-barcode"></span> Ticket</a></li>
-	                    <li class="<?=(isset($informe_menu)) ? 'current' : '' ?>"><a href="<?=base_url('informe')?>"><span class="glyphicon glyphicon-stats"></span> Informe</a></li>
 	                    <li class="<?=(isset($certificados_menu)) ? 'current' : '' ?>"><a href="<?=base_url('certificados')?>"><span class="glyphicon glyphicon-envelope"></span> Certificados</a></li>
+	                    <li class="<?=(isset($informe_menu)) ? 'current' : '' ?>"><a href="<?=base_url('informe')?>"><span class="glyphicon glyphicon-stats"></span> Informe</a></li>
 	                </ul>
 	             </div>
 			  </div>

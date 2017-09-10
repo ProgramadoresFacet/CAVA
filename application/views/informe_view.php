@@ -21,7 +21,7 @@
 				                <?php foreach ($tickets as $ticket):?>
 								<tr class="odd gradeX">
 									<td><?=$ticket->id_ticket?></td>
-									<td><?=$ticket->fecha_ticket?></td>
+									<td><?=date_format(date_create($ticket->fecha_ticket), 'd/m/Y h:m:s')?></td>
 									<td><?=$ticket->nombre?></td>
 									<td><?=$ticket->apellido?></td>
 									<td><?=$ticket->tipo?></td>	

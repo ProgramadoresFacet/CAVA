@@ -1,24 +1,15 @@
-<html>
-  <head>
-  </head>
-  <body>
-    <div class="row">
-      <?php foreach ($ticket as $ticket):?>
-        <br>
-      	<br>
-      	<br>
-      	<br>
-      	<br>
-      	<br>
-      	<br>
-      	<br>
-      	<br>
-        <div class="identi">
-          <p>
-          <h1><b><?=strtoupper($ticket->apellido)?>, <?=strtoupper($ticket->nombre)?></b></h1>
-          </p>
-        </div>        
-      <?php endforeach; ?>
-    </div>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<style>
+  
+</style>
+<body>
+  <img src="<?=base_url('docs/')?>certificado.jpg" alt="">
+  <h1><?=$nombre?></h1>
+  <div class="centrar">
+    <p><b>Participó como <?=$rol?> en la</b></p>
+  </div>
+</body>
 </html>
