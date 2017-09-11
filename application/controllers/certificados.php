@@ -41,6 +41,8 @@ class Certificados extends CI_Controller {
 		if(is_null($id))
 			redirect('certificados');
 		$personas = $this->ticket_model->get_ticket($id);
+
+		//$this->d($personas);
 		
 		foreach ($personas as $persona) {
 			$data['nombre'] = $persona->nombre . ' ' . $persona->apellido;
