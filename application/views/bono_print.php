@@ -57,9 +57,10 @@
       <?php endforeach; ?>
     </div>
     <br>
-    
+
     <div class="datos">
-      <h4>Completar con sus datos de Facturación:</h4>
+      <p>Completar con los datos necesarios para su factura:</p>
+      <br>
       <br>
       <br>
     </div>
